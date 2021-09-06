@@ -70,6 +70,14 @@ The interactive device can be anything *except* a computer, a tablet computer or
 
 \*\***Describe your setting, players, activity and goals here.**\*\*
 
+Setting: The device is staged by the front door in residential housings. The display flashes yellow lights when someone is knocking at the door
+
+Players: Visitors (people who knock on the door) and residences (people who receive the signal) of the household. This is especially useful for residences with hearing disabilities.
+
+Activity: When someone knocks on the door and the residence of the household has pathological (e.g. elderlies, congenital deafness, etc.) or temporary (e.g. listening to music with headphones) hearing loss. 
+
+Goals: The residence's goal is to know when someone is knocking on the door without having to hear the knock.
+
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
 
 \*\***Include a picture of your storyboard here**\*\*
