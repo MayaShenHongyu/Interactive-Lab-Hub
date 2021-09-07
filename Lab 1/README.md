@@ -86,7 +86,9 @@ Sketch a storyboard of the interactions you are planning. It does not need to be
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
 
-\*\***Summarize feedback you got here.**\*\*
+### Feedback
+
+My group members said that they liked the idea because it targets at people with hearing disabilities. Being able to know and respond to door knocking is an essential everyday need for the target users, so the device will become very useful and make the users' lives a lot easier. One concern is that there are many rooms in a house or apartment and the resident can't always see the flashing yellow light on the front door.
 
 
 ## Part B. Act out the Interaction
