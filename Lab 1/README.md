@@ -141,7 +141,7 @@ Think about the setting of the device: is the environment a place where the devi
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
-The device should be moderately big so that it can emit lighting strong enough for people to see from far. Its functionality is simple so the design should be simple and straightforward as well. From the outside, it just looks like a 
+The device should be moderately big so that it can emit lighting strong enough for people to see from far. Its functionality is simple so the design should be simple and straightforward as well. From the outside, it just looks like a signal lighting.
 
 
 ## Part F. Record
@@ -151,9 +151,10 @@ The device should be moderately big so that it can emit lighting strong enough f
 [Demo video](https://youtu.be/yjbV5_ZDnFA)
 
 \*\***Please indicate anyone you collaborated with on this Lab.**\*\*
+
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
 
-
+Yuxuan Zhang gave me the inspiration for this device; Xuanyu Fang gave me feedback and helped me refine my ideas; Wenlan Wei, Hohua Liu, and Xuanyu Fang helped me with recording.
 
 # Staging Interaction, Part 2 
 
