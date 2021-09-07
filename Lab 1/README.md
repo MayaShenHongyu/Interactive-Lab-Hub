@@ -97,8 +97,11 @@ Try physically acting out the interaction you planned. For now, you can just pre
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
 
+As mentioned above in group members' feedback, one cannot always keep an eye on the front door. Even if the user is in the living room, he/she could be occupied with things such as reading or cooking, making it almost impossible to notice the flashing on the front door.
+
 \*\***Are there new ideas that occur to you or your collaborators that come up from the acting?**\*\*
 
+A possible solution to this problem is to have multiple devices in different places instead of just one on the door. There could be one in the bathroom, one in the bedroom on the nightstand, one on the desk, one in sticked onto the fridge, etc.
 
 ## Part C. Prototype the device
 
@@ -112,6 +115,7 @@ If you run into technical issues with this tool, you can also use a light switch
 
 \*\***Give us feedback on Tinkerbelle.**\*\*
 
+I couldn't get it to work on my Mac laptop. 
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
