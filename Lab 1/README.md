@@ -146,7 +146,7 @@ The device should be moderately big so that it can emit lighting strong enough f
 
 \*\***Take a video of your prototyped interaction.**\*\*
 
-[![Demo](./Thumbnail.jpg)](https://youtu.be/yjbV5_ZDnFA)
+[![Demo](./Thumbnail.png)](https://youtu.be/yjbV5_ZDnFA)
 
 \*\***Please indicate anyone you collaborated with on this Lab.**\*\*
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
