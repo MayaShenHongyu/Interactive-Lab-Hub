@@ -135,7 +135,11 @@ Think about the setting of the device: is the environment a place where the devi
 
 \*\***Include sketches of what your device might look like here.**\*\*
 
+![Sketch](./DeviceSketch.jpg)
+
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
+
+The device should be moderately big so that it can emit lighting strong enough for people to see from far. Its functionality is simple so the design should be simple and straightforward as well. From the outside, it just looks like a 
 
 
 ## Part F. Record
