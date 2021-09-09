@@ -167,6 +167,8 @@ You will be assigned three partners from another group. Go to their github pages
 
 \*\***Summarize feedback from your partners here.**\*\*
 
+One feedback I got was that they liked that the device is portable. This prompted me to consider only having one device with support to put on surfaces and magnets to stick to door/fridge instead of multiple ones distributed around the house.
+
 ## Make it your own
 
 Do last week’s assignment again, but this time: 
