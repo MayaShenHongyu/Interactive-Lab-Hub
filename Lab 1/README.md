@@ -167,7 +167,7 @@ You will be assigned three partners from another group. Go to their github pages
 
 \*\***Summarize feedback from your partners here.**\*\*
 
-One feedback I got was that they liked that the device is portable. This prompted me to consider only having one device with support to put on surfaces and magnets to stick to door/fridge instead of multiple ones distributed around the house.
+The main concern they had was the visibility of the light source when the residence is in a different room. I think having multiple devices is a good idea. One feedback I got was that they liked that the device is portable. This prompted me to consider only having one device with support to put on surfaces and magnets to stick to door/fridge as an alternative.
 
 ## Make it your own
 
