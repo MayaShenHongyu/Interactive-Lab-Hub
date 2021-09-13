@@ -186,6 +186,6 @@ The main concern I got in the feedback was the visibility of the light source wh
 2. Instead of just flashing, add loud sound effects
 This feature is useful for those who suffer from partial hearing loss. The knocking sound might be too weak to be heard. The sound alerts from the device can notify the resident.
 
-![New storyboard](./storyboard_new.pdf)
+![New storyboard](./storyboard_new.jpg)
 
 [Revised demo video](https://www.youtube.com/watch?v=co1BAK87oaU)
