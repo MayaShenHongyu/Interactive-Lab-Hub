@@ -177,3 +177,15 @@ Do last week’s assignment again, but this time:
 3) We will be grading with an emphasis on creativity. 
 
 \*\***Document everything here. (Particularly, we would like to see the storyboard and video, although photos of the prototype are also great.)**\*\*
+
+There are two changes I made to the device:
+
+1. Place multiple replicates of the device in different rooms
+The main concern I got in the feedback was the visibility of the light source when the resident is not in the living room. There are two solutions to the problem: 1) make the device portable so that the resident can bring it with him/her anywhere he/she goes and 2) make multiple connected replicates of the device and set them up in different places in the apartment. I decided on the second solution because it doesn't require the user to remember to carry the device around. 
+
+2. Instead of just flashing, add loud sound effects
+This feature is useful for those who suffer from partial hearing loss. The knocking sound might be too weak to be heard. The sound alerts from the device can notify the resident.
+
+![New storyboard](./storyboard_new.jpg)
+
+[Revised demo video](https://www.youtube.com/watch?v=co1BAK87oaU)
