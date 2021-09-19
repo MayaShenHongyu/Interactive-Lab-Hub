@@ -104,6 +104,8 @@ while True:
             button_pressed = "A"
         if not buttonA.value and buttonB.value:
             button_pressed = "B"
+    
+    time.sleep(0.5)
 
 
     ATE_HEALTHY = None
@@ -117,7 +119,7 @@ while True:
         y = top + height / 2 - font.getsize(QUESTION_1)[1]
         draw.text((x, y), QUESTION_1, font=font, fill="#FFFFFF")
         y = top + height / 2
-        draw.text((x, y), QUESTION_1, font=font, fill="#FFFFFF")
+        draw.text((x, y), QUESTION_2, font=font, fill="#FFFFFF")
 
         YES = 'Yes :)'
         x = 0
@@ -132,8 +134,6 @@ while True:
 
         # Display image.
         disp.image(image, rotation)
-
-        time.sleep(0.5)
         
         if buttonA.value and not buttonB.value:
             ATE_HEALTHY = False
