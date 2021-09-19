@@ -105,7 +105,6 @@ while True:
         if not buttonA.value and buttonB.value:
             button_pressed = "B"
 
-    time.sleep(1)
 
     ATE_HEALTHY = None
 
@@ -129,13 +128,14 @@ while True:
 
         # Display image.
         disp.image(image, rotation)
+
+        time.sleep(0.5)
         
         if buttonA.value and not buttonB.value:
             ATE_HEALTHY = False
         if not buttonA.value and buttonB.value:
             ATE_HEALTHY = True
 
-        time.sleep(0.1)
     
     clear_screen()
     
