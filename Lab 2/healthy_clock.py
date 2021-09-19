@@ -95,8 +95,8 @@ while True:
     draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
 
     HINT = 'Press any button to continue.'
-    hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
-    y = bottom - font.getsize(HINT)[1]
+    hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
+    y = bottom - 1.5 * font.getsize(HINT)[1]
     draw.text((x, y), HINT, font=hint_font, fill="#FFFF00")
 
     # Display image.
