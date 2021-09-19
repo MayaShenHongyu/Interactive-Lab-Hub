@@ -76,6 +76,20 @@ def clear_screen():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
+
+while True:
+    # Draw a black filled box to clear the image.
+    clear_screen()
+
+    #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
+    TIME = time.strftime("%m/%d/%Y %H:%M:%S")
+    y = top
+    draw.text((x, y), TIME, font=font, fill="#FFFFFF")
+
+    # Display image.
+    disp.image(image, rotation)
+    time.sleep(1)
+
 ### Display / interaction
 
 while True:
