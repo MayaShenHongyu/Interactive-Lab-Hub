@@ -124,7 +124,6 @@ while True:
         YES = 'Yes :)'
         x = 0
         y = top
-        print(str(height), str(y), str(top))
         draw.text((x, y), YES, font=font, fill="#FFFFFF")
 
         NO = 'Sadly no :('
@@ -144,16 +143,22 @@ while True:
     clear_screen()
     
     if ATE_HEALTHY:
-        CONGRATS = 'Good job! Keep it up tomorrow!'
+        CONGRATS_1 = 'Good job! Keep it up'
+        CONGRATS_2 = 'tomorrow!'
         x = 0
         y = top
-        draw.text((x, y), CONGRATS, font=font, fill="#FFFFFF")
+        draw.text((x, y), CONGRATS_1, font=font, fill="#FFFFFF")
+        y += font.getsize(CONGRATS_1)[1]
+        draw.text((x, y), CONGRATS_2, font=font, fill="#FFFFFF")
         HEALTHY_DAYS += 1
     else:
-        TRY = 'Try to eat healthy tomorrow!'
+        TRY_1 = 'Try to eat healthy'
+        TRY_2 = 'tomorrow!'
         x = 0
         y = top
-        draw.text((x, y), TRY, font=font, fill="#FFFFFF")
+        draw.text((x, y), TRY_1, font=font, fill="#FFFFFF")
+        y += font.getsize(TRY_1)[1]
+        draw.text((x, y), TRY_2, font=font, fill="#FFFFFF")
     
     TOTAL_DAYS += 1
 
