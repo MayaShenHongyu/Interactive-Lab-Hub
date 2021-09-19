@@ -89,7 +89,8 @@ while True:
     # Display image.
     disp.image(image, rotation)
 
-    while not (buttonA.value or buttonB.value):
+    while not buttonA.value and not buttonB.value:
+        print("waiting")
         pass
 
     print("1")
