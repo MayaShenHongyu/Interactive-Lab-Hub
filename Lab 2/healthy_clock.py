@@ -119,6 +119,7 @@ while True:
         YES = 'Yes :)'
         x = 0
         y = top + height / 3
+        print(str(height), str(y), str(top))
         draw.text((x, y), YES, font=font, fill="#FFFFFF")
 
         NO = 'Sadly no :('
