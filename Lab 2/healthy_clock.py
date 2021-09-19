@@ -101,25 +101,26 @@ while True:
 
     time.sleep(1)
 
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    while ATE_HEALTHY == None:
+        draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-    QUESTION = 'Did you eat healthy today?'
-    x = width - font.getsize(QUESTION)[0]
-    y = top + height / 2 - font.getsize(QUESTION)[1] / 2
-    draw.text((x, y), QUESTION, font=font, fill="#FFFFFF")
+        QUESTION = 'Did you eat healthy today?'
+        x = width - font.getsize(QUESTION)[0]
+        y = top + height / 2 - font.getsize(QUESTION)[1] / 2
+        draw.text((x, y), QUESTION, font=font, fill="#FFFFFF")
 
-    YES = 'Yes :)'
-    x = 0
-    y = top + height / 3
-    draw.text((x, y), YES, font=font, fill="#FFFFFF")
+        YES = 'Yes :)'
+        x = 0
+        y = top + height / 3
+        draw.text((x, y), YES, font=font, fill="#FFFFFF")
 
-    NO = 'Sadly no :('
-    x = 0
-    y = top + height * 2 / 3
-    draw.text((x, y), NO, font=font, fill="#FFFFFF")
+        NO = 'Sadly no :('
+        x = 0
+        y = top + height * 2 / 3
+        draw.text((x, y), NO, font=font, fill="#FFFFFF")
 
-    # Display image.
-    disp.image(image, rotation)
+        # Display image.
+        disp.image(image, rotation)
 
     print("2")
 
