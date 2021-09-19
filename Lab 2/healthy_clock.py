@@ -101,6 +101,8 @@ while True:
 
     time.sleep(1)
 
+    ATE_HEALTHY = None
+
     while ATE_HEALTHY == None:
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
