@@ -105,6 +105,8 @@ while True:
         if not buttonA.value and buttonB.value:
             button_pressed = "B"
 
+    time.sleep(0.1)
+
     ATE_HEALTHY = None
 
     while ATE_HEALTHY == None:
