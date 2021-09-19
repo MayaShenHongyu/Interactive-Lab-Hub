@@ -83,25 +83,24 @@ def clear_screen():
 while True:
     clear_screen()
 
-    SUMMARY = 'You have eaten healthy on %d days out of %d days this year!' % (HEALTHY_DAYS, TOTAL_DAYS)
+    SUMMARY_1 = 'You have eaten healthy on '
+    SUMMARY_2 = '%d days out of %d days this year!' % (HEALTHY_DAYS, TOTAL_DAYS)
     x = 0
     y = top
-    draw.text((x, y), SUMMARY, font=font, fill="#FFFFFF")
+    draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
+    y += font.getsize(SUMMARY_1)[1]
+    draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
 
-    button = None
+    button_pressed = None
 
-    while button == None:
+    while button_pressed == None:
         if buttonA.value and not buttonB.value:
             button = "A"
         if not buttonA.value and buttonB.value:
             button = "B"
-
-    print(button)
-
-    time.sleep(1)
 
     ATE_HEALTHY = None
 
@@ -132,20 +131,8 @@ while True:
             ATE_HEALTHY = True
 
         time.sleep(0.1)
-
-    print("2")
-
-    # ATE_HEALTHY = None
-    # while ATE_HEALTHY == None:
-    #     if buttonA.value and not buttonB.value:
-    #         ATE_HEALTHY = False
-    #     if not buttonA.value and buttonB.value:
-    #         ATE_HEALTHY = True
-    
-    time.sleep(0.1)
     
     clear_screen()
-    print(ATE_HEALTHY)
     
     if ATE_HEALTHY:
         CONGRATS = 'Good job! Keep it up tomorrow!'
@@ -161,13 +148,10 @@ while True:
     
     TOTAL_DAYS += 1
 
-    print("4")
 
     # Display image.
     disp.image(image, rotation)
     time.sleep(2)
-
-    print("5")
 
 
         
