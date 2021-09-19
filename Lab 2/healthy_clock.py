@@ -36,7 +36,7 @@ disp = st7789.ST7789(
 # Create blank image for drawing.
 # Make sure to create image with mode 'RGB' for full color.
 height = disp.width
-width = disp.width
+width = disp.height
 image = Image.new("RGB", (width, height))
 rotation = 90
 
