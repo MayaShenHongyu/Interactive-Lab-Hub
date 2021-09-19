@@ -111,10 +111,10 @@ while True:
     while ATE_HEALTHY == None:
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-        QUESTION = 'Did you eat healthy today?'
-        x = width - font.getsize(QUESTION)[0]
-        y = top + height / 2 - font.getsize(QUESTION)[1] / 2
-        draw.text((x, y), QUESTION, font=font, fill="#FFFFFF")
+        # QUESTION = 'Did you eat healthy today?'
+        # x = width - font.getsize(QUESTION)[0]
+        # y = top + height / 2 - font.getsize(QUESTION)[1] / 2
+        # draw.text((x, y), QUESTION, font=font, fill="#FFFFFF")
 
         YES = 'Yes :)'
         x = 0
