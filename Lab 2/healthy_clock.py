@@ -92,6 +92,8 @@ while True:
     while not (buttonA.value or buttonB.value):
         pass
 
+    print("1")
+
     clear_screen()
 
     QUESTION = 'Did you eat healthy today?'
@@ -112,6 +114,8 @@ while True:
     # Display image.
     disp.image(image, rotation)
 
+    print("2")
+
     ATE_HEALTHY = None
     while ATE_HEALTHY == None:
         if buttonA.value and not buttonB.value:
@@ -120,6 +124,7 @@ while True:
             ATE_HEALTHY = False
     
     clear_screen()
+    print("3")
     
     if ATE_HEALTHY:
         CONGRATS = 'Good job! Keep it up tomorrow!'
@@ -135,9 +140,13 @@ while True:
     
     TOTAL_DAYS += 1
 
+    print("4")
+
     # Display image.
     disp.image(image, rotation)
-    time.sleep(1)
+    time.sleep(3)
+
+    print("5")
 
 
         
