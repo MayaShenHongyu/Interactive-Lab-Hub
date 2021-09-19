@@ -104,7 +104,7 @@ while True:
 
     print("1")
 
-    clear_screen()
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
     QUESTION = 'Did you eat healthy today?'
     x = width - font.getsize(QUESTION)[0]
@@ -123,18 +123,19 @@ while True:
 
     # Display image.
     disp.image(image, rotation)
+    time.sleep(1)
 
     print("2")
 
     ATE_HEALTHY = None
     while ATE_HEALTHY == None:
         if buttonA.value and not buttonB.value:
-            ATE_HEALTHY = True
-        if not buttonA.value and buttonB.value:
             ATE_HEALTHY = False
+        if not buttonA.value and buttonB.value:
+            ATE_HEALTHY = True
     
     clear_screen()
-    print("3")
+    print(ATE_HEALTHY)
     
     if ATE_HEALTHY:
         CONGRATS = 'Good job! Keep it up tomorrow!'
