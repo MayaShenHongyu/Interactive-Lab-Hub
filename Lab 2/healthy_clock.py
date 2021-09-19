@@ -125,17 +125,22 @@ while True:
 
         # Display image.
         disp.image(image, rotation)
-        # print(backlight.value)
-        time.sleep(0.1)
-
-    print("2")
-
-    ATE_HEALTHY = None
-    while ATE_HEALTHY == None:
+        
         if buttonA.value and not buttonB.value:
             ATE_HEALTHY = False
         if not buttonA.value and buttonB.value:
             ATE_HEALTHY = True
+
+        time.sleep(0.1)
+
+    print("2")
+
+    # ATE_HEALTHY = None
+    # while ATE_HEALTHY == None:
+    #     if buttonA.value and not buttonB.value:
+    #         ATE_HEALTHY = False
+    #     if not buttonA.value and buttonB.value:
+    #         ATE_HEALTHY = True
     
     time.sleep(0.1)
     
