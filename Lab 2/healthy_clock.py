@@ -118,13 +118,13 @@ while True:
 
         YES = 'Yes :)'
         x = 0
-        y = top + height / 3
+        y = top
         print(str(height), str(y), str(top))
         draw.text((x, y), YES, font=font, fill="#FFFFFF")
 
         NO = 'Sadly no :('
         x = 0
-        y = top + height * 2 / 3
+        y = bottom - font.getsize(NO)[1]
         draw.text((x, y), NO, font=font, fill="#FFFFFF")
 
         # Display image.
