@@ -125,6 +125,7 @@ while True:
 
         # Display image.
         disp.image(image, rotation)
+        print(backlight.value)
         time.sleep(0.1)
 
     print("2")
