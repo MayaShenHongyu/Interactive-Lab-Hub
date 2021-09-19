@@ -97,7 +97,7 @@ while True:
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
     y = bottom - font.getsize(HINT)[1]
-    draw.text((x, y), HINT, font=font, fill="#FFFF00")
+    draw.text((x, y), HINT, font=hint_font, fill="#FFFF00")
 
     # Display image.
     disp.image(image, rotation)
