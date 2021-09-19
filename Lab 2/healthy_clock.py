@@ -94,6 +94,11 @@ while True:
     y += font.getsize(SUMMARY_2)[1]
     draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
 
+    HINT = 'Press any button to continue.'
+    hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
+    y = bottom - font.getsize(HINT)[1]
+    draw.text((x, y), HINT, font=font, fill="#FFFF00")
+
     # Display image.
     disp.image(image, rotation)
 
@@ -143,8 +148,8 @@ while True:
     clear_screen()
     
     if ATE_HEALTHY:
-        CONGRATS_1 = 'Good job! Keep it up'
-        CONGRATS_2 = 'tomorrow!'
+        CONGRATS_1 = 'Good job!'
+        CONGRATS_2 = 'Keep it up tomorrow!'
         x = 0
         y = top
         draw.text((x, y), CONGRATS_1, font=font, fill="#FFFFFF")
@@ -152,7 +157,7 @@ while True:
         draw.text((x, y), CONGRATS_2, font=font, fill="#FFFFFF")
         HEALTHY_DAYS += 1
     else:
-        TRY_1 = 'Try to eat healthy'
+        TRY_1 = 'Try to eat healthier'
         TRY_2 = 'tomorrow!'
         x = 0
         y = top
