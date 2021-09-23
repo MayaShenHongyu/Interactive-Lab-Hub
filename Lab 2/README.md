@@ -222,3 +222,7 @@ As always, make sure you document contributions and ideas from others explicitly
 You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
 
 
+### Feedback
+Right now my device is basically a counter that counts the healthy days users had. I wanted to make it more "clockwise", to somehow connect the idea with the flow of time and to give positive feedback to So I asked the people I sit with on Thursday and got the following feedback:
+- I could draw a piechart-like clock and evenly separate it into seven pieces. Each time the user eats healthy, a piece gets light up. (The idea originates from the Apple watch.)
+- I could grow a plant. Each time the user eats healthy, the plant grows up a little
