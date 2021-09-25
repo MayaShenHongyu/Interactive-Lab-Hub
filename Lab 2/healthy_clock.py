@@ -97,7 +97,7 @@ print(height, width)
 
 images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
 for image in images:
-    print(image.shape)
+    print(image.size)
 ### Display / interaction
 
 while True:
