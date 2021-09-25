@@ -106,8 +106,8 @@ while True:
     # SUMMARY_1 = 'You have eaten healthy '
     # SUMMARY_2 = 'on %d days out of %d days' % (HEALTHY_DAYS, TOTAL_DAYS)
     # SUMMARY_3 = 'this year!'
-    # x = 0
-    # y = top
+    x = 0
+    y = top
     # draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
     # y += font.getsize(SUMMARY_1)[1]
     # draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
