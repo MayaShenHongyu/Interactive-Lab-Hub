@@ -94,6 +94,8 @@ def rescale_image(image):
 
 print(height, width)
 
+image0 = Image.open('image0.jpg')
+
 images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
 
 ### Display / interaction
