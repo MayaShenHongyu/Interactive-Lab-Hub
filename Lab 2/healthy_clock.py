@@ -113,8 +113,9 @@ while True:
     # draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
     # y += font.getsize(SUMMARY_2)[1]
     # draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
+    background_image = images[HEALTHY_DAYS]
 
-    draw = ImageDraw.Draw(images[HEALTHY_DAYS])
+    draw_background = ImageDraw.Draw(background_image)
 
     if HEALTHY_DAYS == 7:
         disp.image(image, rotation)
@@ -123,10 +124,10 @@ while True:
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
     y = bottom - 1.5 * font.getsize(HINT)[1]
-    draw.text((x, y), HINT, font=hint_font, fill="#FFFF00")
+    draw_background.text((x, y), HINT, font=hint_font, fill="#FFFF00")
 
     # Display image.
-    disp.image(image, rotation)
+    disp.image(background_image, rotation)
 
     button_pressed = None
 
