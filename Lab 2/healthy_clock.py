@@ -159,7 +159,7 @@ while True:
 
         NO = 'Sadly no :('
         x = 0
-        y = bottom - font.getsize(NO)[1]
+        y = bottom - 1.1 * font.getsize(NO)[1]
         draw.text((x, y), NO, font=font, fill="#FFFFFF")
 
         # Display image.
