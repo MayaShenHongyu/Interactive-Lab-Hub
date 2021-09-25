@@ -127,7 +127,7 @@ def rescale_image(image):
     return image
 
 image = rescale_image(image)
-image2 = rescale_image(Image.open("image2.jpg"))
+image2 = rescale_image(Image.open("image22.jpg"))
 
 disp.image(image)
 
