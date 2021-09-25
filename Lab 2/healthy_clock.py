@@ -114,7 +114,7 @@ while True:
     # y += font.getsize(SUMMARY_2)[1]
     # draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
 
-    disp.image(images[HEALTHY_DAYS])
+    draw = ImageDraw.Draw(images[HEALTHY_DAYS])
 
     if HEALTHY_DAYS == 7:
         disp.image(image, rotation)
