@@ -92,12 +92,10 @@ def rescale_image(image):
     image = image.crop((x, y, x + width, y + height))
     return image
 
-print(height, width)
 
 
 images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
-for image in images:
-    print(image.size)
+
 ### Display / interaction
 
 while True:
@@ -143,6 +141,7 @@ while True:
     ATE_HEALTHY = None
 
     while ATE_HEALTHY == None:
+        disp.image(image, rotation)
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
         QUESTION_1 = 'Did you'
