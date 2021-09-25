@@ -118,7 +118,7 @@ while True:
     draw_background = ImageDraw.Draw(background_image)
 
     if HEALTHY_DAYS == 7:
-        disp.image(image, rotation)
+        disp.image(background_image, rotation)
         break
 
     HINT = 'Press any button to continue.'
