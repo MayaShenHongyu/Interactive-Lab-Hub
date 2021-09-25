@@ -77,7 +77,7 @@ def clear_screen():
 
 def rescale_image(image):
     image_ratio = image.width / image.height
-    screen_ratio = width / height
+    screen_ratio = height / width
     if screen_ratio < image_ratio:
         scaled_width = image.width * height // image.height
         scaled_height = height
