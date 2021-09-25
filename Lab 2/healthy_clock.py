@@ -5,7 +5,6 @@ from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 
 HEALTHY_DAYS = 0
-TOTAL_DAYS = 0
 
 #### Set-up
 
@@ -76,23 +75,31 @@ def clear_screen():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
+print(height, width)
 
+images = [Image.open('image%d.jpg' % i) for i in range(8)]
 
 ### Display / interaction
 
 while True:
     clear_screen()
 
-    SUMMARY_1 = 'You have eaten healthy '
-    SUMMARY_2 = 'on %d days out of %d days' % (HEALTHY_DAYS, TOTAL_DAYS)
-    SUMMARY_3 = 'this year!'
-    x = 0
-    y = top
-    draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
-    y += font.getsize(SUMMARY_1)[1]
-    draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
-    y += font.getsize(SUMMARY_2)[1]
-    draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
+    # SUMMARY_1 = 'You have eaten healthy '
+    # SUMMARY_2 = 'on %d days out of %d days' % (HEALTHY_DAYS, TOTAL_DAYS)
+    # SUMMARY_3 = 'this year!'
+    # x = 0
+    # y = top
+    # draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
+    # y += font.getsize(SUMMARY_1)[1]
+    # draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
+    # y += font.getsize(SUMMARY_2)[1]
+    # draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
+
+    disp.image(images[HEALTHY_DAYS])
+
+    if HEALTHY_DAYS == 7:
+        disp.image(image, rotation)
+        break
 
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
@@ -126,7 +133,7 @@ while True:
         y = top + height / 2
         draw.text((x, y), QUESTION_2, font=font, fill="#FFFFFF")
 
-        YES = 'Yes :)'
+        YES = 'Yes!'
         x = 0
         y = top
         draw.text((x, y), YES, font=font, fill="#FFFFFF")
@@ -149,7 +156,7 @@ while True:
     
     if ATE_HEALTHY:
         CONGRATS_1 = 'Good job!'
-        CONGRATS_2 = 'Keep it up tomorrow!'
+        CONGRATS_2 = 'Keep it up!'
         x = 0
         y = top
         draw.text((x, y), CONGRATS_1, font=font, fill="#FFFFFF")
@@ -158,14 +165,14 @@ while True:
         HEALTHY_DAYS += 1
     else:
         TRY_1 = 'Try to eat healthier'
-        TRY_2 = 'tomorrow!'
+        TRY_2 = 'next time!'
         x = 0
         y = top
         draw.text((x, y), TRY_1, font=font, fill="#FFFFFF")
         y += font.getsize(TRY_1)[1]
         draw.text((x, y), TRY_2, font=font, fill="#FFFFFF")
     
-    TOTAL_DAYS += 1
+    # TOTAL_DAYS += 1
 
 
     # Display image.
