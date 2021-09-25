@@ -104,7 +104,7 @@ while True:
     # SUMMARY_1 = 'You have eaten healthy '
     # SUMMARY_2 = 'on %d days out of %d days' % (HEALTHY_DAYS, TOTAL_DAYS)
     # SUMMARY_3 = 'this year!'
-    x = 0
+    x = 3
     y = top
     # draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
     # y += font.getsize(SUMMARY_1)[1]
@@ -121,7 +121,7 @@ while True:
 
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
-    y = bottom - 1.5 * font.getsize(HINT)[1]
+    y = bottom - 1.1 * font.getsize(HINT)[1]
     draw_background.text((x, y), HINT, font=hint_font, fill="#FFFF00")
 
     # Display image.
