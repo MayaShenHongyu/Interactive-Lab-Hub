@@ -75,9 +75,26 @@ def clear_screen():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
+def rescale_image(image):
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
+
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
+    return image
+
 print(height, width)
 
-images = [Image.open('image%d.jpg' % i) for i in range(8)]
+images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
 
 ### Display / interaction
 
