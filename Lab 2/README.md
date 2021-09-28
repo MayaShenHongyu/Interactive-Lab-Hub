@@ -181,6 +181,8 @@ Can you make time interactive? You can look in `screen_test.py` for examples for
 
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\*
 
+Code: healthy_clock.py
+
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
 ```
@@ -227,4 +229,5 @@ Right now my device is basically a counter that counts the healthy days users ha
 - I could draw a piechart-like clock and evenly separate it into seven pieces to reflect the days in a week. Each time the user eats healthy, a piece gets light up. (The idea originates from the Apple watch.)
 - To give the user positive feedback, they suggested another solution: the goal is to grow a plant. Each time the user eats healthy, the plant grows up a little.
 
-
+### Video
+[Video](https://www.youtube.com/watch?v=n4HNCVtXFZ8)
