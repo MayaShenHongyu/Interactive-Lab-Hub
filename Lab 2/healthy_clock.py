@@ -4,8 +4,6 @@ import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 
-HEALTHY_DAYS = 0
-
 #### Set-up
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -95,34 +93,39 @@ def rescale_image(image):
 
 
 images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+HEALTHY_DAYS = 0
+TOTAL_DAYS = 0
 
 ### Display / interaction
 
 while True:
     clear_screen()
 
-    # SUMMARY_1 = 'You have eaten healthy '
-    # SUMMARY_2 = 'on %d days out of %d days' % (HEALTHY_DAYS, TOTAL_DAYS)
-    # SUMMARY_3 = 'this year!'
     x = 3
-    y = top
-    # draw.text((x, y), SUMMARY_1, font=font, fill="#FFFFFF")
-    # y += font.getsize(SUMMARY_1)[1]
-    # draw.text((x, y), SUMMARY_2, font=font, fill="#FFFFFF")
-    # y += font.getsize(SUMMARY_2)[1]
-    # draw.text((x, y), SUMMARY_3, font=font, fill="#FFFFFF")
     background_image = images[HEALTHY_DAYS]
 
     draw_background = ImageDraw.Draw(background_image)
 
-    if HEALTHY_DAYS == 7:
-        CONG = 'Congrats!!'
-        cong_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
-        y = bottom - 1.1 * font.getsize(CONG)[1]
-        draw_background.text((x, y), CONG, font=cong_font, fill="#FFFFFF")
-        disp.image(background_image, rotation)
-        break
+    if TOTAL_DAYS == 8:
+        y = top + 2
+        if HEALTHY_DAYS == 7:
+            CONG = 'Congrats!!'
+            draw_background.text((x, y), CONG, font=font, fill=0)
+        else:
+            TRY_AGAIN = 'Try again next week!'
+            draw_background.text((x, y), TRY_AGAIN, font=font, fill=0)
 
+        disp.image(background_image, rotation)
+        time.sleep(3)
+        TOTAL_DAYS = 0
+        HEALTHY_DAYS = 0
+        continue
+
+    DAY = days[TOTAL_DAYS]
+    y = top + 3
+    draw_background.text((x, y), DAY, font=font, fill="#FFFF00")
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
     y = bottom - 1.1 * font.getsize(HINT)[1]
