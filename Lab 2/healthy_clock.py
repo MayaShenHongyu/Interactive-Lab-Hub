@@ -93,7 +93,7 @@ def rescale_image(image):
 
 
 images = [rescale_image(Image.open('image%d.jpg' % i)) for i in range(8)]
-days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 HEALTHY_DAYS = 0
 TOTAL_DAYS = 0
