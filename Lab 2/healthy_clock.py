@@ -116,6 +116,10 @@ while True:
     draw_background = ImageDraw.Draw(background_image)
 
     if HEALTHY_DAYS == 7:
+        CONG = 'Congrats!!'
+        cong_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
+        y = bottom - 1.1 * font.getsize(CONG)[1]
+        draw_background.text((x, y), CONG, font=cong_font, fill="#FFFFFF")
         disp.image(background_image, rotation)
         break
 
