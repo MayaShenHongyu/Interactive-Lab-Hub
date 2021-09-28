@@ -152,12 +152,12 @@ while True:
         draw.text((x, y), QUESTION_2, font=font, fill=0)
 
         YES = 'Yes!'
-        x = 0
+        x = 3
         y = top
         draw.text((x, y), YES, font=font, fill=0)
 
         NO = 'Sadly no :('
-        x = 0
+        x = 3
         y = bottom - 1.1 * font.getsize(NO)[1]
         draw.text((x, y), NO, font=font, fill=0)
 
@@ -175,7 +175,7 @@ while True:
     if ATE_HEALTHY:
         CONGRATS_1 = 'Good job!'
         CONGRATS_2 = 'Keep it up!'
-        x = 0
+        x = 3
         y = top
         draw.text((x, y), CONGRATS_1, font=font, fill=0)
         y += font.getsize(CONGRATS_1)[1]
@@ -184,7 +184,7 @@ while True:
     else:
         TRY_1 = 'Try to eat healthier'
         TRY_2 = 'next time!'
-        x = 0
+        x = 3
         y = top
         draw.text((x, y), TRY_1, font=font, fill=0)
         y += font.getsize(TRY_1)[1]
