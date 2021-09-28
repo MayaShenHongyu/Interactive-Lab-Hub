@@ -125,7 +125,7 @@ while True:
 
     DAY = days[TOTAL_DAYS]
     y = top + 3
-    draw_background.text((x, y), DAY, font=font, fill="#FFFF00")
+    draw_background.text((x, y), DAY, font=font, fill=0)
     HINT = 'Press any button to continue.'
     hint_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
     y = bottom - 1.1 * font.getsize(HINT)[1]
@@ -197,7 +197,7 @@ while True:
         y += font.getsize(TRY_1)[1]
         draw.text((x, y), TRY_2, font=font, fill=0)
     
-    # TOTAL_DAYS += 1
+    TOTAL_DAYS += 1
 
 
     # Display image.
