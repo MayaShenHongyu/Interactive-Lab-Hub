@@ -73,7 +73,7 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
 
 def clear_screen():
     # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    draw.rectangle((0, 0, width, height), outline=0, fill="#FFFFFF")
 
 def rescale_image(image):
     image_ratio = image.width / image.height
@@ -141,26 +141,25 @@ while True:
     ATE_HEALTHY = None
 
     while ATE_HEALTHY == None:
-        disp.image(image, rotation)
-        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+        clear_screen()
 
         QUESTION_1 = 'Did you'
         QUESTION_2 = 'eat healthy today?'
         x = width - font.getsize(QUESTION_2)[0]
         y = top + height / 2 - font.getsize(QUESTION_1)[1]
-        draw.text((x, y), QUESTION_1, font=font, fill="#FFFFFF")
+        draw.text((x, y), QUESTION_1, font=font, fill=0)
         y = top + height / 2
-        draw.text((x, y), QUESTION_2, font=font, fill="#FFFFFF")
+        draw.text((x, y), QUESTION_2, font=font, fill=0)
 
         YES = 'Yes!'
         x = 0
         y = top
-        draw.text((x, y), YES, font=font, fill="#FFFFFF")
+        draw.text((x, y), YES, font=font, fill=0)
 
         NO = 'Sadly no :('
         x = 0
         y = bottom - 1.1 * font.getsize(NO)[1]
-        draw.text((x, y), NO, font=font, fill="#FFFFFF")
+        draw.text((x, y), NO, font=font, fill=0)
 
         # Display image.
         disp.image(image, rotation)
@@ -178,25 +177,25 @@ while True:
         CONGRATS_2 = 'Keep it up!'
         x = 0
         y = top
-        draw.text((x, y), CONGRATS_1, font=font, fill="#FFFFFF")
+        draw.text((x, y), CONGRATS_1, font=font, fill=0)
         y += font.getsize(CONGRATS_1)[1]
-        draw.text((x, y), CONGRATS_2, font=font, fill="#FFFFFF")
+        draw.text((x, y), CONGRATS_2, font=font, fill=0)
         HEALTHY_DAYS += 1
     else:
         TRY_1 = 'Try to eat healthier'
         TRY_2 = 'next time!'
         x = 0
         y = top
-        draw.text((x, y), TRY_1, font=font, fill="#FFFFFF")
+        draw.text((x, y), TRY_1, font=font, fill=0)
         y += font.getsize(TRY_1)[1]
-        draw.text((x, y), TRY_2, font=font, fill="#FFFFFF")
+        draw.text((x, y), TRY_2, font=font, fill=0)
     
     # TOTAL_DAYS += 1
 
 
     # Display image.
     disp.image(image, rotation)
-    time.sleep(2)
+    time.sleep(1)
 
 
         
