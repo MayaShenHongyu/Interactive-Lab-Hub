@@ -104,7 +104,7 @@ while True:
     clear_screen()
 
     x = 3
-    background_image = images[HEALTHY_DAYS]
+    background_image = images[HEALTHY_DAYS].copy()
 
     draw_background = ImageDraw.Draw(background_image)
     # draw_background.rectangle((0, 0, width, height), outline=0, fill="#FFFFFF")
