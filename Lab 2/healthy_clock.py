@@ -108,7 +108,7 @@ while True:
 
     draw_background = ImageDraw.Draw(background_image)
 
-    if TOTAL_DAYS == 8:
+    if TOTAL_DAYS == 7:
         y = top + 2
         if HEALTHY_DAYS == 7:
             CONG = 'Congrats!!'
