@@ -223,6 +223,8 @@ You are permitted (but not required) to work in groups and share a turn in; you 
 
 
 ### Feedback
-Right now my device is basically a counter that counts the healthy days users had. I wanted to make it more "clockwise", to somehow connect the idea with the flow of time and to give positive feedback to So I asked the people I sit with on Thursday and got the following feedback:
-- I could draw a piechart-like clock and evenly separate it into seven pieces. Each time the user eats healthy, a piece gets light up. (The idea originates from the Apple watch.)
-- I could grow a plant. Each time the user eats healthy, the plant grows up a little
+Right now my device is basically a counter that counts the healthy days users had. I wanted to make it more "clockwise", to somehow connect the idea with the flow of time and to give positive feedback to So I asked the people I sat with on Thursday and got the following feedback:
+- I could draw a piechart-like clock and evenly separate it into seven pieces to reflect the days in a week. Each time the user eats healthy, a piece gets light up. (The idea originates from the Apple watch.)
+- To give the user positive feedback, they suggested another solution: the goal is to grow a plant. Each time the user eats healthy, the plant grows up a little.
+
+
