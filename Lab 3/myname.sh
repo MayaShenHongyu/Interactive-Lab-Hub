@@ -1,1 +1,1 @@
-echo "Maya" | festival --tts
+echo "Hello, Maya" | festival --tts
