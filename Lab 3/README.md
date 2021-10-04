@@ -105,6 +105,8 @@ From a remote browser on the same network, check to make sure your webserver is 
 
 Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stuck? Make a device that talks for dogs. If that is too stupid, find an application that is better than that.) 
 
+Our interaction is a voice controlled game. The player is a 911 operator who one day receives a phone call asking for help. The other end is a man, claiming that he is trapped in a room and has lost all his memories. The player's goal is to help this man escape from the apartment.
+
 \*\***Post your storyboard and diagram here.**\*\*
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
