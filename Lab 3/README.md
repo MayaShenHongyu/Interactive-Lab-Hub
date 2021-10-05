@@ -203,16 +203,20 @@ Male Voice: “Ok, study, the painting, let’s see what’s behind it… My god
 
 The connection has been lost. After an hour or so, you received another call suddenly, “Is this 911, hi, I need help, please! Can you help me?” ”I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!”
 
-*If no keyword is recognized: What, what are you saying? I don’t understand.*
-
-*If detect keyword “repeat” - repeat male voice*
-
 
 ### Acting out the dialogue
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
+
+We asked a friend to play the game while we acted as the device. The first two interactions before the actual game began (i.e. where the man was telling his problems) was a little rough because we did not stage clear options for the player to choose. So we added clear questions like "Can you help me?" and try to detect keyword "Yes".
+
+The rest of the game went smoothly except when the player asked the device to repeat. So we decided to add these two instructions throughout the entire game:
+
+*If no keyword is detected - "What, what are you saying? I don’t understand."*
+
+*If detect keyword “repeat” - the guy repeats whatever he said*
 
 ### Wizarding with the Pi (optional)
 In the [demo directory](./demo), you will find an example Wizard of Oz project. In that project, you can see how audio and sensor data is streamed from the Pi to a wizard controller that runs in the browser.  You may use this demo code as a template. By running the `app.py` script, you can see how audio and sensor data (Adafruit MPU-6050 6-DoF Accel and Gyro Sensor) is streamed from the Pi to a wizard controller that runs in the browser `http://<YouPiIPAddress>:5000`. You can control what the system says from the controller as well!
