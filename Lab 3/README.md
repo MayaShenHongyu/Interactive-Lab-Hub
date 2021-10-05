@@ -120,7 +120,90 @@ Map for the game
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 
-\*\***Please describe and document your process.**\*\*
+### Dialogue
+Narrator: *Welcome to Hotline, a voice interaction game. You are now a 9-1-1 hotline operator, you will help a person in need over the phone,  and the only way you can do so is to talk to him and tell him what to do. Here comes your call...*
+
+*beep beep beep*
+
+Male voice: “Is this 911, hi, I need help, please! Can you help me?”
+
+Player response: “yes”/“Hi”/“what happened” / “where are you” / “who are you” …
+If the response is not partially detected, male voice responds: What, what are you saying? I don’t understand.
+
+Male voice: ”I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!”
+
+Player response: “What is the room like” / “What’s in the room”/”What can you see” …
+
+Male voice: “Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there's a painting on the wall… and it’s just like a regular study...”
+
+Player response:
+door - still locked
+Painting - nothing special (0) triggered (1)
+book/bookshelf - Voice: ”Ok, I’ll check the book …… oh! There’s a book that looks strange, let me check… Oh my god, the book is carved hollow inside and there’s a key in it!” ->
+Player response:
+Door - “Oh it’s the key for the door, I’m out, let me see...” ->
+Others - “what do you want me to do with the key?”
+
+Male voice: “Ok, now I’m out, I’m in a … hallway I think, quite a simple house, there’s no window though, let me see … (walking around) … are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right,I think is the kitchen, and one ahead, should be the bedroom?”
+
+Player response:
+Bathroom / left- “The door is open, god bless, it seems to be… a normal bathroom, quite small.” ->
+Kitchen / Right - “I can smell something, it smells so good in it, the door is locked, I can’t go in, my god, I’m so hungry, how long has it been! Maybe I should try somewhere else?”
+Bedroom / Ahead - “it’s weird, there’s not even a grip on the door, wait a minute, there’s something written on the door … *What's in the soup today?* what? What does that mean? Maybe I should try somewhere else?”
+
+Male voice: “Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...”
+
+Player response:
+Bathtub - “It’s … just a regular bathtub I think...”
+mirror - “ok, you are right, I should probably see what I look like, maybe I could remember something? Let me see … Oh My God!! Who am I, what’s wrong with this terrible face! I’m not looking at it anymore!”
+Toilet - “Ok, It’s really dirty, but got to do whatever gets me out of this shithole .... Wait, it’s not flushing, maybe something is clogged, let me check... who would have thought that! Are you like a detective or something? It’s a key! Probably opens the door to the kitchen!” ->
+
+Male voice: “Now that I have the key, where should I go? Bedroom, Kitchen, or study?”
+
+Player response:
+Bedroom - “Ok, let me see, there’s no key hole on the door, really weird, just something written on the door … *What’s in the soup today?* what does that mean?”
+Study - “Just like before, I don’t see anything useful, maybe I should do something with the key?”
+Kitchen - “ahh, there’s a keyhole, let me try… Ok, the door's open, let me see what’s inside, man, it smells so good!” ->
+
+Male Voice: “So… Here's the kitchen, some bowls … some bread, the stove is still on, and something is boiling in the pot, dang, that smells so good, Wonder what’s in it… should I go check the pot?”
+
+Player Responses: 
+Yes / pot/ check/ why not / what/ inside - “it’s soup! I need to have some…(tasting soup) Ok, it tastes like heaven, my lord, I think there’s tomatoes, chicken, onions, and chilies, I wish you could be here to taste it.” ->
+Others - “Oh I’m too hungry, I need to know what smells that good” - then go to yes
+
+Male Voice: “Ok, enough soup, what should I do now? Should I go Bathroom, study, or bedroom?”
+
+Player Responses: 
+Study - “still the same old study, maybe I should check out other rooms?”
+Bathroom - “eww, it’s dirty, not going back again”
+Bedroom - “Yes! The soup! Maybe that will solve the puzzle!” ->
+
+Male Voice: “Ok, now I’m at the bedroom door, it’s hardly a door, no grip or anything, a question on it though, *What’s in the soup today?* , oh man, I shouldn’t have finished it all, do you still remember what’s in it?”
+
+Player Responses:
+Tomato / chicken / onion / chilli / s  - “Yes, yes, I still remember that taste! You are right!” ->
+
+Male Voice: “So… should I just say the word? *INPUT* *INPUT* holy shit, it’s opening! The door opened automatically, is someone listening to me? …. OK, this is the bedroom, still no exit in it, how can this house have no exit! Ok, there’s the bed, of course, queen size I guess, looking cozy, a computer on the desk, and a book on the nightstand… What should I do?”
+
+Player Responses:
+Bed - “I’m not going to sleep at this time, maybe something else?”
+Desk / computer - “you are right, maybe I can connect to the internet … ok it’s totally dead, just a decoration I guess…, maybe something else?”
+Book / nightstand - “Sure, it’s never late to read, here’s a bookmarked page *reading* Painting is always a good place for many private people to hide their secrets in their home, many indoor designs leave a secret space on the wall that is covered by paintings and decorations … wait, that sounds real familiar... ”  ->
+
+Male Voice: “I think that’s it for the bedroom, where should I go next, I don’t see another new door… should I go back to the kitchen, or bathroom, or study?”
+
+Player Responses:
+Study - “Wait, you are right, there’s a painting there! Maybe something hidden!” ->
+Bathroom - “eww, it’s dirty, not going back again!”
+Kitchen - “No soup there anymore, maybe somewhere else?”
+
+Male Voice: “Ok, study, the painting, let’s see what’s behind it… My god, there is actually something! Can you imagine that? There’s a half-full vile of some greenish fluid … and a note … *drink it and you will be free*, what does that mean? Should I drink it? Shoot… the phone is going to die … hey, hey can you still hear me... should I drink … ”
+
+The connection has been lost. After an hour or so, you received another call suddenly, “Is this 911, hi, I need help, please! Can you help me?” ”I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!”
+
+// If no keyword is recognized: What, what are you saying? I don’t understand.
+// If “repeat” - repeat male voice
+
 
 ### Acting out the dialogue
 
