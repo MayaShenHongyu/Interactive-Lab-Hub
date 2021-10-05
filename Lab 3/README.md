@@ -105,9 +105,7 @@ From a remote browser on the same network, check to make sure your webserver is 
 
 Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stuck? Make a device that talks for dogs. If that is too stupid, find an application that is better than that.) 
 
-Our interaction is a voice controlled game. The player is a 911 operator who one day receives a phone call asking for help. The other end is a man, claiming that he is trapped in a room and has lost all his memories. The player's goal is to help this man escape from the apartment.
-
-\*\***Post your storyboard and diagram here.**\*\*
+Our device is a voice interaction game. The player plays the role of a 911 operator who receives an emergency call asking for help. The other end of the phone call is a man who claims that he is trapped in a locked apartment and has lost all his memories. He asks for the player’s help to escape from the apartment. The man describes what he sees and lists out possible actions; the player instructs the man to conduct these actions by speech to move forward with the game. This game is suitable to be designed as a voice interaction game because it simulates a phone call in which the player does not have vision.
 
 Storyboard
 ![Storyboard](./storyboard.jpg)
