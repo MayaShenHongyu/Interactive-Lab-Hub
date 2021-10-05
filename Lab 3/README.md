@@ -204,6 +204,7 @@ Male Voice: “Ok, study, the painting, let’s see what’s behind it… My god
 The connection has been lost. After an hour or so, you received another call suddenly, “Is this 911, hi, I need help, please! Can you help me?” ”I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!”
 
 *If no keyword is recognized: What, what are you saying? I don’t understand.*
+
 *If detect keyword “repeat” - repeat male voice*
 
 
