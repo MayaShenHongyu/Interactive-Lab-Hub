@@ -110,7 +110,7 @@ Our interaction is a voice controlled game. The player is a 911 operator who one
 \*\***Post your storyboard and diagram here.**\*\*
 
 Storyboard
-![Storyboard](./IDD\ Lab\ 3\ Storyboard.jpg)
+![Storyboard](./IDD Lab 3 Storyboard.jpg)
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 
