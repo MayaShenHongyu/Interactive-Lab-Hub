@@ -28,5 +28,5 @@ while True:
         print("Result:", res['text'])
     # else:
     #     print(rec.PartialResult())
-
-print(rec.FinalResult())
+print(wf.getframerate())
+# print(rec.FinalResult())
