@@ -25,7 +25,7 @@ while True:
         break
     if rec.AcceptWaveform(data):
         res = json.loads(rec.Result())
-        print(res)
+        print("Result:", res['text'])
     # else:
     #     print(rec.PartialResult())
 
