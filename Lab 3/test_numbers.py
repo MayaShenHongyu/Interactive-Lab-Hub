@@ -4,6 +4,7 @@ from vosk import Model, KaldiRecognizer
 import sys
 import os
 import wave
+import json
 
 if not os.path.exists("model"):
     print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
@@ -23,8 +24,9 @@ while True:
     if len(data) == 0:
         break
     if rec.AcceptWaveform(data):
-        print(rec.Result())
-    else:
-        print(rec.PartialResult())
+        res = json.loads(rec.Result())
+        print(res)
+    # else:
+    #     print(rec.PartialResult())
 
 print(rec.FinalResult())
