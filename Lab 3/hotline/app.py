@@ -96,7 +96,7 @@ while True:
     record_user_input()
     result = recognize("door painting bookshelf")
     if "door" in result:
-        speak("Ok I'm checking the door now...It’s still locked!")
+        speak("Ok I’m checking the door now...It’s still locked!")
     elif "painting" in result:
         speak("There is nothing special with the painting.")
     elif "bookshelf" in result:
@@ -254,7 +254,7 @@ while True:
     if position != last_position:
         last_position = position
         print("Position: {}".format(position))
-    if (position % 10) == 3:
+    if (position % 10) == 4:
         break
 speak("Wow you are a genius! How did you fix that?")
 
