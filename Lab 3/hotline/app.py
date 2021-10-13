@@ -66,6 +66,7 @@ while True:
     if result != "":
         break
     dont_understand()
+# fix this
 
 speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
 while True:
@@ -111,6 +112,7 @@ while True:
     speak("Where should I go? Bathroom, kitchen, or bedroom?")
 
 speak("Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...")
+speak("Which one should I check first?")
 while True:
     record_user_input()
     result = recognize("bathtub mirror toilet")
