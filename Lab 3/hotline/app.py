@@ -72,15 +72,30 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
-pickedUp = False
-while not pickedUp:
+
+while True:
+    subprocess.call("aplay noise.wav", shell=True)
+
+    # negate the position to make clockwise rotation positive
+    position = -encoder.position
+
+    if position != last_position:
+        last_position = position
+        print("Position: {}".format(position))
+    if position == 5:
+        break
+
+
+
+button_held = False
+while True:
     subprocess.call("aplay ring.wav", shell=True)
     if not button.value and not button_held:
         button_held = True
-        pickedUp = True
+        break
     if button.value and button_held:
         button_held = False
-        pickedUp = True
+        break
 
 speak("Is this 911? Hi, I need help, please! Can you help me?")
 while True:
@@ -142,16 +157,6 @@ while True:
     else:
         dont_understand()
     speak("Where should I go? Bathroom, kitchen, or bedroom?")
-
-while True:
-
-    # negate the position to make clockwise rotation positive
-    position = -encoder.position
-
-    if position != last_position:
-        last_position = position
-        print("Position: {}".format(position))
-
 
 speak("Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...")
 speak("Which one should I check first?")
@@ -258,7 +263,12 @@ while True:
 speak("Ok, study, the painting, let’s see what’s behind it… My god, there is actually something!")
 speak("Can you imagine that? There’s a half-full vile of some greenish fluid … and a note … Drink it and you will be free.")
 speak("What does that mean? Should I drink it? Shoot… the phone is going to die … hey, hey can you still hear me... should I drink …")
+subprocess.call("aplay busy.wav", shell=True)
 
 speak("The connection has been lost. After an hour or so, you received another call suddenly")
+
+subprocess.call("aplay ring.wav", shell=True)
+subprocess.call("aplay ring.wav", shell=True)
+
 speak("Is this 911, hi, I need help, please! Can you help me?")
 speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
