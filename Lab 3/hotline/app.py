@@ -50,38 +50,38 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
-# speak("Is this 911? Hi, I need help, please! Can you help me?")
-# while True:
-#     record_user_input()
-#     result = recognize("yes sure")
-#     if result != "":
-#         break
-#     dont_understand()
-#     speak("Can you help me?")
+speak("Is this 911? Hi, I need help, please! Can you help me?")
+while True:
+    record_user_input()
+    result = recognize("yes sure")
+    if result != "":
+        break
+    dont_understand()
+    speak("Can you help me?")
 
-# speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
-# while True:
-#     record_user_input()
-#     result = recognize("room see what")
-#     if result != "":
-#         break
-#     dont_understand()
+speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
+while True:
+    record_user_input()
+    result = recognize("room see what")
+    if result != "":
+        break
+    dont_understand()
 
-# speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
-# while True:
-#     record_user_input()
-#     result = recognize("door painting bookshelf")
-#     if "door" in result:
-#         speak("It’s still locked!")
-#     elif "painting" in result:
-#         speak("There is nothing special")
-#     elif "bookshelf" in result:
-#         speak("Ok, I’ll check the book …… oh! There’s a book that looks strange, let me check… " + 
-#         "Oh my god, the book is carved hollow inside and there’s a key in it!")
-#         break
-#     else:
-#         dont_understand()
-#     what_should_I_do()
+speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
+while True:
+    record_user_input()
+    result = recognize("door painting bookshelf")
+    if "door" in result:
+        speak("It’s still locked!")
+    elif "painting" in result:
+        speak("There is nothing special")
+    elif "bookshelf" in result:
+        speak("Ok, I’ll check the book …… oh! There’s a book that looks strange, let me check… " + 
+        "Oh my god, the book is carved hollow inside and there’s a key in it!")
+        break
+    else:
+        dont_understand()
+    speak("Should I check the door, the painting, or the bookshelf?")
 
 speak("What do you want me to do with the key?")
 while True:
@@ -91,7 +91,7 @@ while True:
         break
     else:
         dont_understand()
-    what_should_I_do()
+    speak("What do you want me to do with the key?")
 
 speak("Ok, now I’m out, I’m in a hallway I think, quite a simple house, there’s no window though, let me see …… ")
 speak("Are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right, I think is the kitchen, and one ahead, should be the bedroom?")
@@ -108,7 +108,7 @@ while True:
         speak("it’s weird, there’s not even a grip on the door, wait a minute, there’s something written on the door … What’s in the soup today? what? What does that mean? Maybe I should try somewhere else?")
     else:
         dont_understand()
-    what_should_I_do()
+    speak("Where should I go? Bathroom, kitchen, or bedroom?")
 
 speak("Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...")
 while True:
@@ -124,7 +124,7 @@ while True:
         break
     else:
         dont_understand()
-    what_should_I_do()
+    speak("Should I check the bathtub, mirror, or toilet?")
 
 
 speak("Now that I have the key, where should I go? Bedroom, Kitchen, or study?")
@@ -140,5 +140,81 @@ while True:
         break
     else:
         dont_understand()
-    what_should_I_do()
+    speak("Should I go to the bedroom, kitchen, or study?")
 
+speak("So… Here’s the kitchen, some bowls … some bread, the stove is still on, and something is boiling in the pot, dang, that smells so good.") 
+speak("I wonder what’s in it… should I go check the pot?")
+record_user_input()
+result = recognize("yes pot check why not what inside")
+if result == "":
+    speak("Oh I’m too hungry, I need to know what smells that good")
+speak("It’s soup! I need to have some…")
+speak("Ok, it tastes like heaven, my lord, I think there’s tomatoes, chicken, onions, and chilies, I wish you could be here to taste it.")
+
+speak("Ok, enough soup, what should I do now? Should I go Bathroom, study, or bedroom?")
+while True:
+    record_user_input()
+    result = recognize("bedroom study bathroom")
+    if "bedroom" in result:
+        speak("Yes! The soup! Maybe that will solve the puzzle!")
+        break
+    elif "study" in result:
+        speak("Still the same old study, maybe I should check out other rooms?")
+    elif "bathroom" in result:
+        speak("eww, it’s dirty, not going back again")
+    else:
+        dont_understand()
+    speak("Should I go to the bathroom, study, or bedroom?")
+
+speak("Ok, now I’m at the bedroom door, it’s hardly a door, no grip or anything, a question on it though...")
+speak("What’s in the soup today? Oh man, I shouldn’t have finished it all, do you still remember what’s in it?")
+record_user_input()
+result = recognize("tomato chicken onion chilli")
+if result == "":
+    speak("Hmmm I think there’s tomato in it...")
+    result = "tomato"
+else:
+    speak("Yes, yes, I still remember that taste! You are right!")
+
+speak("So… should I just say the word?" + result + result)
+speak("Holy shit, it’s opening! The door opened automatically, is someone listening to me?")
+speak("Ok, there’s the bed, of course, queen size I guess, looking cozy, a computer on the desk, and a book on the nightstand… What should I do?")
+while True:
+    record_user_input()
+    result = recognize("bed desk computer book nightstand")
+    if "bed" in result:
+        speak("I’m not going to sleep at this time, maybe something else?")
+    elif "desk" in result or "computer" in result:
+        speak("You are right, maybe I can connect to the internet … ok it’s totally dead, just a decoration I guess…, maybe something else?")
+    elif "book" in result or "nightstand" in result:
+        speak("Sure, it’s never late to read, here’s a bookmarked page...")
+        speak("Painting is always a good place for many private people to hide their secrets in their home")
+        speak("many indoor designs leave a secret space on the wall that is covered by paintings and decorations … wait, that sounds real familiar... ")
+        break
+    else:
+        dont_understand()
+    speak("Should I check the bed, desk, or the nightstand?")
+
+speak("I think that’s it for the bedroom, where should I go next, I don’t see another new door")
+speak("Should I go back to the kitchen, or bathroom, or study?")
+while True:
+    record_user_input()
+    result = recognize("study bathroom kitchen")
+    if "study" in result:
+        speak("Wait, you are right, there’s a painting there! Maybe something hidden!")
+        break
+    elif "bathroom" in result:
+        speak("eww, it’s dirty, not going back again!")
+    elif "kitchen" in result:
+        speak("No soup there anymore, maybe somewhere else?")
+    else:
+        dont_understand()
+    speak("Should I go to the kitchen, or bathroom, or study?")
+
+speak("Ok, study, the painting, let’s see what’s behind it… My god, there is actually something!")
+speak("Can you imagine that? There’s a half-full vile of some greenish fluid … and a note … Drink it and you will be free.")
+speak("What does that mean? Should I drink it? Shoot… the phone is going to die … hey, hey can you still hear me... should I drink …")
+
+speak("The connection has been lost. After an hour or so, you received another call suddenly")
+speak("Is this 911, hi, I need help, please! Can you help me?")
+speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
