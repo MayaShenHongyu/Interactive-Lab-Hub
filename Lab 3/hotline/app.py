@@ -74,7 +74,7 @@ def recognize(pattern):
 
 pickedUp = False
 while not pickedUp:
-    playsound("ring.mp3")
+    subprocess.call("aplay ring.wav", shell=True)
     if not button.value and not button_held:
         button_held = True
         pickedUp = True
