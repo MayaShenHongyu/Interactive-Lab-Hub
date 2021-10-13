@@ -3,6 +3,28 @@ import subprocess
 import os
 import wave
 import json
+import board
+from adafruit_seesaw import seesaw, rotaryio, digitalio
+from playsound import playsound
+
+# For use with the STEMMA connector on QT Py RP2040
+# import busio
+# i2c = busio.I2C(board.SCL1, board.SDA1)
+# seesaw = seesaw.Seesaw(i2c, 0x36)
+
+seesaw = seesaw.Seesaw(board.I2C(), addr=0x36)
+
+seesaw_product = (seesaw.get_version() >> 16) & 0xFFFF
+print("Found product {}".format(seesaw_product))
+if seesaw_product != 4991:
+    print("Wrong firmware loaded?  Expected 4991")
+
+seesaw.pin_mode(24, seesaw.INPUT_PULLUP)
+button = digitalio.DigitalIO(seesaw, 24)
+button_held = False
+
+encoder = rotaryio.IncrementalEncoder(seesaw)
+last_position = None
 
 if not os.path.exists("../model"):
     print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
@@ -49,6 +71,13 @@ def recognize(pattern):
         #     print(rec.PartialResult())
     print("Failed to recognize")
     return ""
+
+pickedUp = False
+while not pickedUp:
+    playsound("ring.mp3")
+    if not button.value and not button_held:
+        button_held = True
+        pickedUp = True
 
 speak("Is this 911? Hi, I need help, please! Can you help me?")
 while True:
@@ -110,6 +139,16 @@ while True:
     else:
         dont_understand()
     speak("Where should I go? Bathroom, kitchen, or bedroom?")
+
+while True:
+
+    # negate the position to make clockwise rotation positive
+    position = -encoder.position
+
+    if position != last_position:
+        last_position = position
+        print("Position: {}".format(position))
+
 
 speak("Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...")
 speak("Which one should I check first?")
