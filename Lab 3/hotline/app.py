@@ -19,7 +19,11 @@ def speak(instruction):
     """ + f"say '{instruction}'"
     subprocess.call(command, shell=True)
 
+def dont_understand():
+    speak("What, what are you saying? I don’t understand.")
 
+def what_should_I_do():
+    speak("What should I do?")
 
 def record_user_input():
     subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
@@ -53,18 +57,18 @@ def recognize(pattern):
 # if result != None:
 #     print("RESULT IS: " + result)
 
-recognized = False
-while not recognized:
+while True:
     record_user_input()
     result = recognize("bedroom study kitchen")
-    recognized = True
     if "bedroom" in result:
         speak("Ok, let me see, there’s no key hole on the door, really weird, just something written on the door … What’s in the soup today? What does that mean?")
     elif "study" in result:
         speak("Just like before, I don’t see anything useful, maybe I should do something with the key?")
     elif "kitchen" in result:
         speak("Ahh, there’s a keyhole, let me try… Ok, the door's open, let me see what’s inside, man, it smells so good!")
+        passed = True
+        break
     else:
-        speak("What, what are you saying? I don’t understand.")
-        recognized = False
+        dont_understand()
+    what_should_I_do()
 
