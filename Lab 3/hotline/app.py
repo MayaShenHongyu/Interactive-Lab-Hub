@@ -57,6 +57,7 @@ def recognize(pattern):
 # if result != None:
 #     print("RESULT IS: " + result)
 
+speak("Now that I have the key, where should I go? Bedroom, Kitchen, or study?")
 while True:
     record_user_input()
     result = recognize("bedroom study kitchen")
