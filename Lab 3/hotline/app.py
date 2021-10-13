@@ -266,8 +266,7 @@ while True:
         speak("No soup there anymore, maybe somewhere else?")
     else:
         dont_understand()
-    speak("Should I go to the kitchen, or restroom
-    , or study?")
+    speak("Should I go to the kitchen, or restroom, or study?")
 
 speak("Ok, study, the painting, let’s see what’s behind it… My god, there is actually something!")
 speak("Can you imagine that? There’s a half-full vile of some greenish fluid … and a note … Drink it and you will be free.")
