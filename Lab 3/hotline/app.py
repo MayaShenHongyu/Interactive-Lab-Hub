@@ -73,19 +73,6 @@ def recognize(pattern):
     return ""
 
 
-while True:
-    subprocess.call("aplay noise.wav", shell=True)
-
-    # negate the position to make clockwise rotation positive
-    position = -encoder.position
-
-    if position != last_position:
-        last_position = position
-        print("Position: {}".format(position))
-    if position == 5:
-        break
-
-
 
 button_held = False
 while True:
@@ -157,6 +144,21 @@ while True:
     else:
         dont_understand()
     speak("Where should I go? Bathroom, kitchen, or bedroom?")
+
+
+speak("Wait... the connection is kinda unstable...")
+while True:
+    subprocess.call("aplay noise.wav", shell=True)
+
+    # negate the position to make clockwise rotation positive
+    position = -encoder.position
+
+    if position != last_position:
+        last_position = position
+        print("Position: {}".format(position))
+    if position == 5:
+        break
+speak("Oh! thank god I've got you back")
 
 speak("Now I’m in the bathroom, there’s the bathtub, nothing unusual, the toilet, and a mirror ...")
 speak("Which one should I check first?")
@@ -244,7 +246,21 @@ while True:
         dont_understand()
     speak("Should I check the bed, desk, or the nightstand?")
 
-speak("I think that’s it for the bedroom, where should I go next, I don’t see another new door")
+speak("Wait... the connection is lost again... hold on")
+while True:
+    subprocess.call("aplay noise.wav", shell=True)
+
+    # negate the position to make clockwise rotation positive
+    position = -encoder.position
+
+    if position != last_position:
+        last_position = position
+        print("Position: {}".format(position))
+    if position == 5:
+        break
+speak("Wow you're a genius! How did you fix that?")
+
+speak("Ok. So I think that’s it for the bedroom, where should I go next, I don’t see another new door")
 speak("Should I go back to the kitchen, or bathroom, or study?")
 while True:
     record_user_input()
