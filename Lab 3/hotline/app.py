@@ -83,17 +83,18 @@ def recognize(pattern):
 #         dont_understand()
 #     what_should_I_do()
 
-speak("What do you want me to do with the key?")
-while True:
-    record_user_input()
-    result = recognize("door")
-    if "door" in result:
-        break
-    else:
-        dont_understand()
-    what_should_I_do()
+# speak("What do you want me to do with the key?")
+# while True:
+#     record_user_input()
+#     result = recognize("door")
+#     if "door" in result:
+#         break
+#     else:
+#         dont_understand()
+#     what_should_I_do()
 
-speak("Ok, now I’m out, I’m in a … hallway I think, quite a simple house, there’s no window though, let me see …… are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right, I think is the kitchen, and one ahead, should be the bedroom?")
+speak("Ok, now I’m out, I’m in a … hallway I think, quite a simple house, there’s no window though, let me see …… ")
+speak("Are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right, I think is the kitchen, and one ahead, should be the bedroom?")
 while True:
     record_user_input()
     result = recognize("bathroom kitchen study left right ahead")
