@@ -78,6 +78,9 @@ while not pickedUp:
     if not button.value and not button_held:
         button_held = True
         pickedUp = True
+    if button.value and button_held:
+        button_held = False
+        pickedUp = True
 
 speak("Is this 911? Hi, I need help, please! Can you help me?")
 while True:
