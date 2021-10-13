@@ -83,27 +83,28 @@ def recognize(pattern):
 #         dont_understand()
 #     what_should_I_do()
 
-# speak("What do you want me to do with the key?")
-# while True:
-#     record_user_input()
-#     result = recognize("door")
-#     if "door" in result:
-#         break
-#     else:
-#         dont_understand()
-#     what_should_I_do()
-
-speak("Ok, now I’m out, I’m in a … hallway I think, quite a simple house, there’s no window though, let me see …… ")
-speak("Are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right, I think is the kitchen, and one ahead, should be the bedroom?")
+speak("What do you want me to do with the key?")
 while True:
     record_user_input()
-    result = recognize("bathroom kitchen study left right ahead")
-    if "bathroom" in result or "left" in result:
+    result = recognize("door")
+    if "door" in result:
+        break
+    else:
+        dont_understand()
+    what_should_I_do()
+
+speak("Ok, now I’m out, I’m in a hallway I think, quite a simple house, there’s no window though, let me see …… ")
+speak("Are you still there? I see three rooms, other than the study, one to my left, it says, bathroom, one to my right, I think is the kitchen, and one ahead, should be the bedroom?")
+speak("Where should I go?")
+while True:
+    record_user_input()
+    result = recognize("bathroom kitchen study")
+    if "bathroom" in result:
         speak("The door is open, god bless, it seems to be… a normal bathroom, quite small.")
         break
-    elif "kitchen" in result or "right" in result:
+    elif "kitchen" in result:
         speak("I can smell something, it smells so good in it, the door is locked, I can’t go in, my god, I’m so hungry, how long has it been! Maybe I should try somewhere else?")
-    elif "bedroom" in result or "ahead" in result:
+    elif "bedroom" in result:
         speak("it’s weird, there’s not even a grip on the door, wait a minute, there’s something written on the door … What’s in the soup today? what? What does that mean? Maybe I should try somewhere else?")
     else:
         dont_understand()
@@ -118,7 +119,8 @@ while True:
     elif "mirror" in result:
         speak("Ok, you are right, I should probably see what I look like, maybe I could remember something? Let me see … Oh My God!! Who am I, what’s wrong with this terrible face! I’m not looking at it anymore!")
     elif "toilet" in result:
-        speak("Ok, It’s really dirty, but got to do whatever gets me out of this shithole .... Wait, it’s not flushing, maybe something is clogged, let me check... who would have thought that! Are you like a detective or something? It’s a key! Probably opens the door to the kitchen!")
+        speak("Ok, It’s really dirty, but got to do whatever gets me out of this shithole .... Wait, it’s not flushing, maybe something is clogged, let me check... who would have thought that!")
+        speak("Are you like a detective or something? It’s a key! Probably opens the door to the kitchen!")
         break
     else:
         dont_understand()
