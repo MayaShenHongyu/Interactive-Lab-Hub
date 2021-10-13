@@ -54,7 +54,7 @@ def recognize(pattern):
 #     print("RESULT IS: " + result)
 
 recognized = False
-while not recognize:
+while not recognized:
     record_user_input()
     result = recognize("bedroom study kitchen")
     recognized = True
