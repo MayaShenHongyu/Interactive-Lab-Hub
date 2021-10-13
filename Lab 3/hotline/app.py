@@ -94,15 +94,7 @@ while True:
     speak("Can you help me?")
 
 speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
-while True:
-    record_user_input()
-    result = recognize("room see what")
-    if result != "":
-        break
-    dont_understand()
-# fix this
-
-speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
+speak("So um...I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
 while True:
     record_user_input()
     result = recognize("door painting bookshelf")
