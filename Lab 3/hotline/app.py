@@ -50,38 +50,38 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
-speak("Is this 911? Hi, I need help, please! Can you help me?")
-while True:
-    record_user_input()
-    result = recognize("yes")
-    if "yes" in result:
-        break
-    dont_understand()
-    speak("Can you help me?")
+# speak("Is this 911? Hi, I need help, please! Can you help me?")
+# while True:
+#     record_user_input()
+#     result = recognize("yes sure")
+#     if result != "":
+#         break
+#     dont_understand()
+#     speak("Can you help me?")
 
-speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
-while True:
-    record_user_input()
-    result = recognize("room see what")
-    if result != "":
-        break
-    dont_understand()
+# speak("I lost my memory and I’m now trapped in a room! There’s no one with me, and I don’t remember anything!")
+# while True:
+#     record_user_input()
+#     result = recognize("room see what")
+#     if result != "":
+#         break
+#     dont_understand()
 
-speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
-while True:
-    record_user_input()
-    result = recognize("door painting bookshelf")
-    if "door" in result:
-        speak("It’s still locked!")
-    elif "painting" in result:
-        speak("There is nothing special")
-    elif "bookshelf" in result:
-        speak("Ok, I’ll check the book …… oh! There’s a book that looks strange, let me check… " + 
-        "Oh my god, the book is carved hollow inside and there’s a key in it!")
-        break
-    else:
-        dont_understand()
-    what_should_I_do()
+# speak("Ok, ok, I’m in a study I guess, there’s a door, let me see … it’s locked, there are many books on a bookshelf, there’s a painting on the wall… and it’s just like a regular study...")
+# while True:
+#     record_user_input()
+#     result = recognize("door painting bookshelf")
+#     if "door" in result:
+#         speak("It’s still locked!")
+#     elif "painting" in result:
+#         speak("There is nothing special")
+#     elif "bookshelf" in result:
+#         speak("Ok, I’ll check the book …… oh! There’s a book that looks strange, let me check… " + 
+#         "Oh my god, the book is carved hollow inside and there’s a key in it!")
+#         break
+#     else:
+#         dont_understand()
+#     what_should_I_do()
 
 speak("What do you want me to do with the key?")
 while True:
