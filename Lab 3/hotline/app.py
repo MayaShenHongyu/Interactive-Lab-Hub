@@ -4,6 +4,12 @@ import os
 import wave
 import json
 
+if not os.path.exists("../model"):
+    print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
+    exit (1)
+
+USER_INPUT_FILE = "user_input.wav"
+
 
 
 def speak(instruction):
@@ -14,16 +20,16 @@ def speak(instruction):
     """ + f"say '{instruction}'"
     subprocess.call(command, shell=True)
 
+
+
+def record_user_input():
+    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
+
+
 speak("say hello!")
+record_user_input()
 
-record_user_input_cmd = "arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav user_input.wav"
-subprocess.call(record_user_input_cmd, shell=True)
-
-if not os.path.exists("../model"):
-    print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
-    exit (1)
-
-wf = wave.open("user_input.wav", "rb")
+wf = wave.open(USER_INPUT_FILE, "rb")
 if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
     print ("Audio file must be WAV format mono PCM.")
     exit (1)
@@ -39,7 +45,7 @@ while True:
     if rec.AcceptWaveform(data):
         res = json.loads(rec.Result())
         print("Result:", res['text'])
-    else:
-        print(rec.PartialResult())
+    # else:
+    #     print(rec.PartialResult())
 
 
