@@ -32,7 +32,7 @@ def recognize(pattern):
         print ("Audio file must be WAV format mono PCM.")
         exit (1)
 
-    rec = KaldiRecognizer(model, wf.getframerate(), pattern + " [unk]")
+    rec = KaldiRecognizer(model, wf.getframerate(), pattern)
 
     while True:
         data = wf.readframes(4000)
@@ -49,5 +49,6 @@ def recognize(pattern):
 speak("say hello!")
 record_user_input()
 result = recognize("hello")
-print("RESULT IS: " + result)
+if result != None:
+    print("RESULT IS: " + result)
 
