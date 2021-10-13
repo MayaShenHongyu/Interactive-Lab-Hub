@@ -148,7 +148,7 @@ while True:
     if position != last_position:
         last_position = position
         print("Position: {}".format(position))
-    if position == 5:
+    if position == 3:
         break
 speak("Oh! thank god I have got you back")
 
@@ -248,7 +248,7 @@ while True:
     if position != last_position:
         last_position = position
         print("Position: {}".format(position))
-    if position == -5:
+    if position == -1:
         break
 speak("Wow you are a genius! How did you fix that?")
 
