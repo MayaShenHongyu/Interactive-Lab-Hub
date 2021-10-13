@@ -56,7 +56,7 @@ def recognize(pattern):
 # result = recognize("hello")
 # if result != None:
 #     print("RESULT IS: " + result)
-
+speak("Ahh, there’s a keyhole, let me try… Ok, the door's open, let me see what’s inside, man, it smells so good!")
 speak("Now that I have the key, where should I go? Bedroom, Kitchen, or study?")
 while True:
     record_user_input()
