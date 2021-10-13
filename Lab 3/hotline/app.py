@@ -9,8 +9,7 @@ if not os.path.exists("../model"):
     exit (1)
 
 USER_INPUT_FILE = "user_input.wav"
-
-
+model = Model("../model")
 
 def speak(instruction):
     command = """
@@ -26,26 +25,29 @@ def record_user_input():
     subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
 
 
+def recognize(pattern):
+    
+    wf = wave.open(USER_INPUT_FILE, "rb")
+    if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
+        print ("Audio file must be WAV format mono PCM.")
+        exit (1)
+
+    rec = KaldiRecognizer(model, wf.getframerate(), pattern + " [unk]")
+
+    while True:
+        data = wf.readframes(4000)
+        if len(data) == 0:
+            break
+        if rec.AcceptWaveform(data):
+            res = json.loads(rec.Result())
+            print("Result:", res['text'])
+            return res['text']
+        # else:
+        #     print(rec.PartialResult())
+    print("Failed to recognize")
+
 speak("say hello!")
 record_user_input()
-
-wf = wave.open(USER_INPUT_FILE, "rb")
-if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
-    print ("Audio file must be WAV format mono PCM.")
-    exit (1)
-
-model = Model("../model")
-
-rec = KaldiRecognizer(model, wf.getframerate(), "hello [unk]")
-
-while True:
-    data = wf.readframes(4000)
-    if len(data) == 0:
-        break
-    if rec.AcceptWaveform(data):
-        res = json.loads(rec.Result())
-        print("Result:", res['text'])
-    # else:
-    #     print(rec.PartialResult())
-
+result = recognize("hello")
+print("RESULT IS: " + result)
 
