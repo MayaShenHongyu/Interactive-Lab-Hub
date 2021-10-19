@@ -306,6 +306,9 @@ Build a cardbord prototype of your design.
 
 **\*\*\*Document your rough prototype.\*\*\***
 
+![1](./diagrams/prototype2.jpeg)
+![2](./diagrams/prototype1.jpeg)
+
 
 LAB PART 2
 
