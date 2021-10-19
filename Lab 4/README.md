@@ -177,6 +177,10 @@ Usually, sensors need to positioned in specific locations or orientations to mak
 
 We picked the capacitive sensor as our sensor for interaction design.
 
+![1](./diagrams/partc_1.jpg)
+![2](./diagrams/partc_2.jpg)
+![3](./diagrams/partc_3.jpg)
+
 1. Whack a fruit game
 
     This game is designed to resemble the Whack a mole game, where players smash the mole when it pops up. In this case, the player will be looking at the screen and smash the correct fruit to score. 
@@ -223,6 +227,8 @@ We picked the capacitive sensor as our sensor for interaction design.
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
+We picked "Animal Band".
+
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
@@ -264,11 +270,35 @@ Think about how you want to present the information about what your sensor is se
  
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
 
+We chose "Animal Band" to prototype.
+
+![1](./diagrams/partd_1.jpg)
+![2](./diagrams/partd_2.jpg)
+![3](./diagrams/partd_3.jpg)
+![4](./diagrams/partd_4.jpg)
+![5](./diagrams/partd_5.jpg)
+
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
+
+Here are the main questions we had:
+
+- Do we want to encourage teamwork or individual experience? If we allow multiple players to play, how do we place the four cables connecting to the "animals"? Do we have them all on the same side or different sides?
+- How much leeway do we want the cables to have with the animals?
+- How do we represent the animals? Do we use cardboards with figures on them or just write the animal name down?
+- Should there be a display? 
 
 **\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
 
+We picked the fifth design to integrate into our prototype.
+
 **\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
+
+We picked the fifth design for the following reasons:
+
+- We want to allow users to play with their friends. So we put each cable on a different side. This way, the players could sit around a table and easily reach for their own cable/animal. Also, the speaker, display, and buttons are placed on the top side so that everyone can hear/see/control.
+- We want the cables to be as long as possible because the players could be sitting apart from each other depending on where they are playing.
+- We decided on a round cardboard with written animal names on them. Printing/drawing different figures would take too much time. Further polishing could be done later on in the prototyping process.
+- There should be a display. This way, it is clear to the user whether or not they have successfully pressed the record button. The display can also tell them if there is a recorded piece to play.
 
 Build a cardbord prototype of your design.
 
