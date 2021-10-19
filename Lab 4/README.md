@@ -175,6 +175,8 @@ Usually, sensors need to positioned in specific locations or orientations to mak
 
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
 
+We picked the capacitive sensor as our sensor for interaction design.
+
 1. Whack a fruit game
 
     This game is designed to resemble the Whack a mole game, where players smash the mole when it pops up. In this case, the player will be looking at the screen and smash the correct fruit to score. 
