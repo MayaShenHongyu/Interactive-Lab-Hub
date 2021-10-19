@@ -176,18 +176,23 @@ Usually, sensors need to positioned in specific locations or orientations to mak
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
 
 1. Whack a fruit game
+
     This game is designed to resemble the Whack a mole game, where players smash the mole when it pops up. In this case, the player will be looking at the screen and smash the correct fruit to score. 
 
 2. Finger dance game 
+
     The finger dance game uses five physical buttons: up, down, left, right, and spin to guide the move of the avatar on the screen. Players will push the buttons according to the screen’s hint, where the directions will float on the screen from the left to the right. The avatar will dance to the music and generate scores. 
 
 3. Car racing game 
+
    In this game, players will be driving the car using the controller enabled by the sensor. There will be buttons for turning left and right and also drifting. 
 
 4. Animal band - make your acapella
+
     In this game, users will be playing with different character buttons to make their own beats. Each button will produce a different sound associated to the character once pressed. For example, the frog sound might be used as the high-hat, and the kitten will produce a “meow” sound. Users can record the beats and play it again. 
 
 5. Restroom control system 
+
     The device will work as a remote control in this case. Users can turn on and off the bathroom light, the ventilation system, and also adjust the temperature using the buttons.
 
 
