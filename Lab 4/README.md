@@ -198,6 +198,27 @@ Usually, sensors need to positioned in specific locations or orientations to mak
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
+1. Whack a fruit game 
+
+    From our sketch, we found that we will have to include a larger screen to show where the fruits pop up so the player can see clearly, since we wanted the physical touching board to resemble the actual whack a mole game (eg. in 3 * 3 grids). This might be hard to operate unless we use a larger monitor for displaying. In physical prototyping, we will also have to make the fruit “smashable” by using plastic fruit models. 
+    
+2. Finger dance game 
+
+    One question we thought about was the alignment of the buttons. From the sketch, we found that instead of putting the buttons in fixed places and sequences, it might be more user-friendly if players can place the buttons as they wish. For example, some players might want the buttons to be mounted on the walls while others might want to hold the buttons. Another thing we noticed was the size of the buttons. Will users enjoy it more as a finger dance game or a whole-body exercise like the dancing machine they can use at home? 
+
+3. Car racing game 
+
+    For the car racing game, we wanted to know if we can successfully assemble a mini controller that holds different buttons together, and can detect whether different buttons were pressed. In prototyping, we will have to try out if the sensor can work when different buttons are placed close to each other, or connected together on a plastic surface.
+
+4. Animal band 
+
+    In this case, one thing we wanted to explore is if there will be time lags and delays between when the buttons are pressed and the sound is made from the speaker. Because we wanted to make it a melodic game, we will have to make sure that there will be minimum time lags so that the user can try out and create the beat smoothly. We also wanted to see if we should group the buttons or let the users try out the buttons that produce different sounds in a random order. For example, we group animals that produce the drum sounds and others that produce melodies. 
+
+5. Restroom control system 
+
+    For the restroom control system, we were wondering how we could connect the remote to the devices in the restroom without cables. It would require us to establish wireless connections between the devices and our pi first. 
+
+
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
 
