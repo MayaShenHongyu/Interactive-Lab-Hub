@@ -55,7 +55,7 @@ ADDR_1 = 0x6f
 ADDR_2 = 0x6e
 # initialize the button
 button = I2C_Button(i2c, ADDR_1, name="red")
-button2 = I2C_Button(i2c, ADDR_2)
+# button2 = I2C_Button(i2c, ADDR_2)
 print("found button at", hex(button.i2c_addr))
 
 # print some stuff
