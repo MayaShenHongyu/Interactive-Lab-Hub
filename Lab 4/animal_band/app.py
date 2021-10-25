@@ -3,6 +3,12 @@ import board
 import busio
 
 import adafruit_mpr121
+import asyncio  
+from asyncio.subprocess import PIPE, STDOUT  
+import subprocess  
+import signal
+
+
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -12,6 +18,16 @@ yellow = 9
 green = 11
 red = 5
 white = 2
+
+
+cmd1 = "aplay llama.wav"
+process = asyncio.create_subprocess_shell(cmd1, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
+
+time.sleep(1)
+
+process.wait()
+print("???")
+
 
 while True:
     for i in range(12):
