@@ -20,14 +20,37 @@ green = 11
 red = 5
 white = 2
 
+async def run_cmd(cmd):
 
-cmd1 = "aplay llama.wav"
-process = asyncio.create_subprocess_shell(cmd1, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
+  print(f'Executing: {" ".join(cmd)}')
 
-time.sleep(1)
+  process = await asyncio.create_subprocess_exec(
 
-process.wait()
-print("???")
+      *cmd, stdout=asyncio.subprocess.PIPE)
+
+  out, error = await process.communicate()
+
+  print(f'Done with {" ".join(cmd)}: {out.decode("utf8")}')
+
+async def main():
+
+  await asyncio.gather(
+
+      run_cmd("aplay llama.wav"),
+
+      run_cmd(['echo', 'hello'])
+
+  )
+
+asyncio.run(main())
+
+# cmd1 = "aplay llama.wav"
+# process = await asyncio.create_subprocess_shell(cmd1, stdin = PIPE, stdout = PIPE, stderr = STDOUT)
+
+# time.sleep(1)
+
+# process.wait()
+# print("???")
 
 
 # while True:
