@@ -38,7 +38,7 @@ async def main():
 
       run_cmd("aplay llama.wav"),
 
-      run_cmd(['echo', 'hello'])
+    #   run_cmd(['echo', 'hello'])
 
   )
 
