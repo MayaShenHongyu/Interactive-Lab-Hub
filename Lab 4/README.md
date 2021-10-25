@@ -343,9 +343,12 @@ It is also possible to control the servo using the sensors mentioned in as in pa
 
 You can then call whichever control you like rather than setting a fixed value for the servo. For more information on controlling Qwiic devices, Sparkfun has several python examples, such as [this](https://learn.sparkfun.com/tutorials/qwiic-joystick-hookup-guide/all#python-examples).
 
-We encourage you to try using these controls, **while** paying particular attention to how the interaction changes depending on the position of the controls. For example, if you have your servo rotating a screen (or a piece of cardboard) from one position to another, what changes about the interaction if the control is on the same side of the screen, or the opposite side of the screen? Trying and retrying different configurations generally helps reveal what a design choice changes about the interaction -- _make sure to document what you tried_!
+We encourage you to try using these controls, **while** paying particular attention to how the interaction changes depending on the position of the controls. For example, if you have your servo rotating a screen (or a piece of cardboard) from one position to another, what changes about the interaction if the control is on the same side of the screen, or the opposite side of the screen? Trying and retrying different configurations generally helps reveal what a design choice changes about the interaction -- _make<img width="955" alt="截屏2021-10-24 下午11 25 48" src="https://user-images.githubusercontent.com/31870235/138630767-8ed4d798-4846-47c0-af5c-bd9a3421d7cc.png">
+ sure to document what you tried_!
 
-![Motor](https://drive.google.com/file/d/1dJQvNDG8FFmB2ZT_GAijswn-ZlH1ejkf/view?usp=sharing)
+
+
+[![Motor](https://user-images.githubusercontent.com/31870235/138630834-f97c0472-a0ea-44a8-a3f5-649b7b8369fa.png)](https://drive.google.com/file/d/1dJQvNDG8FFmB2ZT_GAijswn-ZlH1ejkf/view?usp=sharing)
 
 ### Part F
 ### Record
