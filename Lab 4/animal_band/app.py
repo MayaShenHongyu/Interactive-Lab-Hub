@@ -2,7 +2,8 @@ import time
 import board
 import busio
 
-import adafruit_mpr121
+# import adafruit_mpr121
+
 import asyncio  
 from asyncio.subprocess import PIPE, STDOUT  
 import subprocess  
