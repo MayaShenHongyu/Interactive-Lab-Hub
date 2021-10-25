@@ -51,8 +51,12 @@ default_addr = 0x6f
 if default_addr not in devices:
 	print('warning: no device at the default button address', default_addr)
 
+ADDR_1 = 0x6F
+ADDR_2 = 0x5A
 # initialize the button
-button = I2C_Button(i2c)
+button = I2C_Button(i2c, ADDR_1)
+button2 = I2C_Button(i2c, ADDR_2)
+print("found button at", hex(button.i2c_addr))
 
 # print some stuff
 print('firmware version', button.version)
