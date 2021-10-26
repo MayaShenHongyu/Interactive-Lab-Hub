@@ -363,4 +363,4 @@ Document all the prototypes and iterations you have designed and worked on! Agai
 ![2](./prototype/4.jpeg)
 ![2](./prototype/5.jpeg)
 
-[![Demo]](https://user-images.githubusercontent.com/31870235/138803149-b7f9173a-a69a-41a7-802f-8f3c84138eb5.png)](https://drive.google.com/file/d/1WdH7FgH6xVH75blPeLxsb1owFGnZha4U/view?usp=sharing)
+[Demo video](https://drive.google.com/file/d/1WdH7FgH6xVH75blPeLxsb1owFGnZha4U/view?usp=sharing)
