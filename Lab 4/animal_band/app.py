@@ -9,6 +9,7 @@ import board
 import busio
 from i2c_button import I2C_Button
 
+import qwiic_button 
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -25,12 +26,29 @@ default_addr = 0x6f
 if default_addr not in devices:
 	print('warning: no device at the default button address', default_addr)
 
-button = I2C_Button(i2c)
-button.clear()
-button.led_bright = 0
-button.led_gran = 1
-button.led_cycle_ms = 0
-button.led_off_ms = 100
+my_button = qwiic_button.QwiicButton()
+
+if my_button.begin() == False:
+    print("The Qwiic Button isn't connected to the system. Please check your connection")
+
+print("Button ready!")
+
+# button = I2C_Button(i2c)
+# button.clear()
+# button.led_bright = 0
+# button.led_gran = 1
+# button.led_cycle_ms = 0
+# button.led_off_ms = 100
+
+while True:   
+        
+    if my_button.is_button_pressed() == True:
+        print("\nThe button is pressed!")
+
+    else:    
+        print("\nThe button is not pressed!")
+        
+    time.sleep(0.02)
 
 while True:
     button.clear() # status must be cleared manually
