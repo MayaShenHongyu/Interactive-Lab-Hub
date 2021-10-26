@@ -3,83 +3,121 @@ import board
 import busio
 
 import adafruit_mpr121
+import adafruit_ssd1306
+from PIL import Image, ImageDraw, ImageFont
 
 import subprocess  
 import board
 import busio
-from i2c_button import I2C_Button
 
 import qwiic_button 
 
 
+YELLOW_INDEX = 9
+GREEN_INDEX = 11
+RED_INDEX = 5
+WHITE_INDEX = 2
+
 i2c = busio.I2C(board.SCL, board.SDA)
 
 mpr121 = adafruit_mpr121.MPR121(i2c)
+disp = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
 
-# scan the I2C bus for devices
-while not i2c.try_lock():
-	pass
-devices = i2c.scan()
-i2c.unlock()
-print('I2C devices found:', [hex(n) for n in devices])
-# default_addr = 0x6f
-# if default_addr not in devices:
-# 	print('warning: no device at the default button address', default_addr)
 
-my_button = qwiic_button.QwiicButton()
-my_button2 = qwiic_button.QwiicButton(0x6E)
-# my_button2.set_I2C_address(0x6E)
+red_button = qwiic_button.QwiicButton()
+green_button = qwiic_button.QwiicButton(0x6E)
 
-# if my_button.begin() == False:
-#     print("The Qwiic Button isn't connected to the system. Please check your connection")
+if red_button.begin() == False:
+    print("The Red Qwiic Button isn't connected to the system. Please check your connection")
 
-# if my_button2.begin() == False:
-#     print("The Qwiic Button isn't connected to the system. Please check your connection")
+if green_button.begin() == False:
+    print("The Green Qwiic Button isn't connected to the system. Please check your connection")
 
-# print("Button ready!")
-# print(my_button.get_I2C_address(), my_button2.get_I2C_address())
 
+
+
+# start with a blank screen
+disp.fill(0)
+# we just blanked the framebuffer. to push the framebuffer onto the display, we call show()
+disp.show()
+
+width = disp.width
+height = disp.height
+
+image = Image.new("1", (width, height))
+
+# Get drawing object to draw on image.
+draw = ImageDraw.Draw(image)
+
+# Draw some shapes.
+# First define some constants to allow easy resizing of shapes.
+padding = -2
+top = padding
+bottom = height - padding
+# Move left to right keeping track of the current x position for drawing shapes.
+x = 0
+
+
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
+
+# Draw a black filled box to clear the image.
+draw.rectangle((0, 0, width, height), outline=0, fill=0)
+draw.text((x, top), "Animal Band!", font=font, fill=255)
+disp.image(image)
+disp.show()
+
+while True:
+    
+    while True:
+        time.sleep(0.02)
+        if red_button.is_button_pressed():
+            break
+    
+    
+    while True:
+        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+        draw.text((x, top), "Recording...", font=font, fill=255)
+        disp.image(image)
+        disp.show()
+        if red_button.is_button_pressed():
+            break
+        for i in range(12):
+            if mpr121[i].value:
+                print(f"Twizzler {i} touched!")
+        if mpr121[YELLOW_INDEX].value: 
+            subprocess.Popen(['aplay', 'llama.wav'], start_new_session=True)
+        if mpr121[GREEN_INDEX].value: 
+            subprocess.Popen(['aplay', 'bear.wav'], start_new_session=True)
+        if mpr121[RED_INDEX].value: 
+            subprocess.Popen(['aplay', 'fox.wav'], start_new_session=True)
+        if mpr121[WHITE_INDEX].value: 
+            subprocess.Popen(['aplay', 'hello.wav'], start_new_session=True)
+        time.sleep(0.1)  # Small delay to keep from spamming output messages.
+
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    draw.text((x, top), "You have a recording to play", font=font, fill=255)
+    disp.image(image)
+    disp.show()
+
+    while True:
+        time.sleep(0.02)
+        if green_button.is_button_pressed():
+            break
+
+
+
+    
+    
 while True:   
         
-    if my_button.is_button_pressed() == True:
+    if red_button.is_button_pressed() == True:
         print("\nThe first button is pressed!")
 
-    if my_button2.is_button_pressed() == True:
+    if green_button.is_button_pressed() == True:
         print("\nThe second button is pressed!")
         
     time.sleep(0.02)
 
 
-# button = I2C_Button(i2c)
-# button.clear()
-# button.led_bright = 0
-# button.led_gran = 1
-# button.led_cycle_ms = 0
-# button.led_off_ms = 100
-
-# while True:
-#     button.clear() # status must be cleared manually
-#     time.sleep(0.1)
-#     print('status', button.status)
-#     # print('last click ms', button.last_click_ms)
-#     # print('last press ms', button.last_press_ms)
-
-yellow = 9
-green = 11
-red = 5
-white = 2
 
 
-while True:
-    for i in range(12):
-        if mpr121[i].value:
-            print(f"Twizzler {i} touched!")
-    if mpr121[yellow].value: 
-        subprocess.Popen(['aplay', 'llama.wav'], start_new_session=True)
-    if mpr121[green].value: 
-        subprocess.Popen(['aplay', 'bear.wav'], start_new_session=True)
-    if mpr121[red].value: 
-        subprocess.Popen(['aplay', 'fox.wav'], start_new_session=True)
-    if mpr121[white].value: 
-        subprocess.Popen(['aplay', 'hello.wav'], start_new_session=True)
-    time.sleep(0.1)  # Small delay to keep from spamming output messages.
