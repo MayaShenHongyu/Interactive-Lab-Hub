@@ -33,11 +33,11 @@ button.led_cycle_ms = 0
 button.led_off_ms = 100
 
 while True:
-    button.clear() # status must be cleared manually
+    # button.clear() # status must be cleared manually
     # time.sleep(1)
     print('status', button.status)
-    print('last click ms', button.last_click_ms)
-    print('last press ms', button.last_press_ms)
+    # print('last click ms', button.last_click_ms)
+    # print('last press ms', button.last_press_ms)
 
 yellow = 9
 green = 11
