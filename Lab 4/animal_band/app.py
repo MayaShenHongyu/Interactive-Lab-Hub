@@ -17,20 +17,35 @@ red = 5
 white = 2
 
 
+# while True:
+#     for i in range(12):
+#         if mpr121[i].value:
+#             print(f"Twizzler {i} touched!")
+#     if mpr121[yellow].value: 
+#         subprocess.call("aplay llama.wav", shell=True)
+#         # subprocess.Popen(['aplay', 'llama.wav'])
+#     elif mpr121[green].value: 
+#         subprocess.call("aplay bear.wav", shell=True)
+#         # subprocess.Popen(['aplay', 'bear.wav'])
+#     elif mpr121[red].value: 
+#         subprocess.call("aplay fox.wav", shell=True)
+#         # subprocess.Popen(['aplay', 'fox.wav'])
+#     elif mpr121[white].value: 
+#         subprocess.call("aplay hello.wav", shell=True)
+#         # subprocess.Popen(['aplay', 'hello.wav'])
+#     # time.sleep(0.25)  # Small delay to keep from spamming output messages.
+
+
 while True:
     for i in range(12):
         if mpr121[i].value:
             print(f"Twizzler {i} touched!")
     if mpr121[yellow].value: 
-        subprocess.call("aplay llama.wav", shell=True)
-        # subprocess.Popen(['aplay', 'llama.wav'])
+        subprocess.Popen(['aplay', 'llama.wav'])
     elif mpr121[green].value: 
-        subprocess.call("aplay bear.wav", shell=True)
-        # subprocess.Popen(['aplay', 'bear.wav'])
+        subprocess.Popen(['aplay', 'bear.wav'])
     elif mpr121[red].value: 
-        subprocess.call("aplay fox.wav", shell=True)
-        # subprocess.Popen(['aplay', 'fox.wav'])
+        subprocess.Popen(['aplay', 'fox.wav'])
     elif mpr121[white].value: 
-        subprocess.call("aplay hello.wav", shell=True)
-        # subprocess.Popen(['aplay', 'hello.wav'])
+        subprocess.Popen(['aplay', 'hello.wav'])
     # time.sleep(0.25)  # Small delay to keep from spamming output messages.
