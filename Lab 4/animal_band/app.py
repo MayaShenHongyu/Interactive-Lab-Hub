@@ -22,21 +22,22 @@ while not i2c.try_lock():
 devices = i2c.scan()
 i2c.unlock()
 print('I2C devices found:', [hex(n) for n in devices])
-default_addr = 0x6f
-if default_addr not in devices:
-	print('warning: no device at the default button address', default_addr)
+# default_addr = 0x6f
+# if default_addr not in devices:
+# 	print('warning: no device at the default button address', default_addr)
 
-my_button = qwiic_button.QwiicButton()
+# my_button = qwiic_button.QwiicButton()
 my_button2 = qwiic_button.QwiicButton(0x5B)
+my_button2.set_I2C_address(0x6F)
 
-if my_button.begin() == False:
-    print("The Qwiic Button isn't connected to the system. Please check your connection")
+# if my_button.begin() == False:
+#     print("The Qwiic Button isn't connected to the system. Please check your connection")
 
-if my_button2.begin() == False:
-    print("The Qwiic Button isn't connected to the system. Please check your connection")
+# if my_button2.begin() == False:
+#     print("The Qwiic Button isn't connected to the system. Please check your connection")
 
-print("Button ready!")
-print(my_button.get_I2C_address(), my_button2.get_I2C_address())
+# print("Button ready!")
+# print(my_button.get_I2C_address(), my_button2.get_I2C_address())
 
 while True:   
         
