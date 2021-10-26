@@ -43,7 +43,7 @@ while True:
     if my_button.is_button_pressed() == True:
         print("\nThe first button is pressed!")
 
-    if my_button.is_button_pressed() == True:
+    if my_button2.is_button_pressed() == True:
         print("\nThe second button is pressed!")
         
     time.sleep(0.02)
