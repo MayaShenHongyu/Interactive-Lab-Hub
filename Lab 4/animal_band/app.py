@@ -48,4 +48,4 @@ while True:
         subprocess.Popen(['aplay', 'fox.wav'], start_new_session=True)
     elif mpr121[white].value: 
         subprocess.Popen(['aplay', 'hello.wav'], start_new_session=True)
-    # time.sleep(0.25)  # Small delay to keep from spamming output messages.
+    time.sleep(0.25)  # Small delay to keep from spamming output messages.
