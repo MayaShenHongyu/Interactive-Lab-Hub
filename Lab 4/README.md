@@ -355,12 +355,18 @@ Document all the prototypes and iterations you have designed and worked on! Agai
 * "Works like": shows what the device can do
 * "Acts like": shows how a person would interact with the device
 
+The first thing we changed is the layout and design of the device. Initially it looked empty so we added some graphics and changed the square box look into a triangular body look. We also hided the speaker/recorder inside the box to make it look cleaner. Considering Halloween is approaching, we designed a halloween styled cover and used a spooky background music. We have attached some photos that would give you a closer look of the buttons and display.
+
 ![sketch](./prototype/sketch.jpg)
 
-![1](./prototype/1.jpeg)
-![2](./prototype/2.jpeg)
-![2](./prototype/3.jpeg)
-![2](./prototype/4.jpeg)
-![2](./prototype/5.jpeg)
+![1](./prototype/1.jpeg) This is the setup of our device.
+
+![2](./prototype/2.jpeg) Here is what the screen will display when no buttons are pressed.
+
+![2](./prototype/3.jpeg) This shows that the device is recording player's music when the player only press the red button once.
+
+![2](./prototype/4.jpeg) When players press the red button again, it will show that it stopped recording and users can listen to the recorded music.
+
+![2](./prototype/5.jpeg) Once users finished recording, they can press the green button to listen.
 
 [Demo video](https://drive.google.com/file/d/1WdH7FgH6xVH75blPeLxsb1owFGnZha4U/view?usp=sharing)
