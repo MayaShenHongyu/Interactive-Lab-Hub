@@ -41,11 +41,11 @@ while True:
         if mpr121[i].value:
             print(f"Twizzler {i} touched!")
     if mpr121[yellow].value: 
-        subprocess.Popen(['aplay', 'llama.wav'])
+        subprocess.Popen(['aplay', 'llama.wav'], start_new_session=True)
     elif mpr121[green].value: 
-        subprocess.Popen(['aplay', 'bear.wav'])
+        subprocess.Popen(['aplay', 'bear.wav'], start_new_session=True)
     elif mpr121[red].value: 
-        subprocess.Popen(['aplay', 'fox.wav'])
+        subprocess.Popen(['aplay', 'fox.wav'], start_new_session=True)
     elif mpr121[white].value: 
-        subprocess.Popen(['aplay', 'hello.wav'])
+        subprocess.Popen(['aplay', 'hello.wav'], start_new_session=True)
     # time.sleep(0.25)  # Small delay to keep from spamming output messages.
