@@ -58,7 +58,7 @@ bottom = height - padding
 x = 0
 
 
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
 
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -70,7 +70,8 @@ while True:
     
     while True:
         time.sleep(0.02)
-        if red_button.is_button_pressed():
+        if red_button.has_button_been_clicked():
+            red_button.clear_event_bits()
             break
     
     
@@ -79,7 +80,8 @@ while True:
         draw.text((x, top), "Recording...", font=font, fill=255)
         disp.image(image)
         disp.show()
-        if red_button.is_button_pressed():
+        if red_button.has_button_been_clicked():
+            red_button.clear_event_bits()
             break
         for i in range(12):
             if mpr121[i].value:
@@ -101,7 +103,8 @@ while True:
 
     while True:
         time.sleep(0.02)
-        if green_button.is_button_pressed():
+        if green_button.has_button_been_clicked():
+            green_button.clear_event_bits()
             break
 
 
