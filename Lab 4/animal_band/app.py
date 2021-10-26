@@ -66,6 +66,8 @@ draw.text((x, top), "Animal Band!", font=font, fill=255)
 disp.image(image)
 disp.show()
 
+red_button.clear_event_bits()
+green_button.clear_event_bits()
 while True:
     
     while True:
