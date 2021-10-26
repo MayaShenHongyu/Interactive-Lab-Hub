@@ -27,7 +27,6 @@ if default_addr not in devices:
 	print('warning: no device at the default button address', default_addr)
 
 my_button = qwiic_button.QwiicButton()
-# my_button.set_I2C_address(0x5B)
 my_button2 = qwiic_button.QwiicButton(0x5B)
 
 if my_button.begin() == False:
@@ -39,15 +38,15 @@ if my_button2.begin() == False:
 print("Button ready!")
 print(my_button.get_I2C_address(), my_button2.get_I2C_address())
 
-# while True:   
+while True:   
         
-#     if my_button.is_button_pressed() == True:
-#         print("\nThe button is pressed!")
+    if my_button.is_button_pressed() == True:
+        print("\nThe first button is pressed!")
 
-#     else:    
-#         print("\nThe button is not pressed!")
+    if my_button.is_button_pressed() == True:
+        print("\nThe second button is pressed!")
         
-#     time.sleep(0.02)
+    time.sleep(0.02)
 
 
 # button = I2C_Button(i2c)
