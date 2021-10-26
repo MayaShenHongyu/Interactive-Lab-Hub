@@ -70,15 +70,15 @@ disp.show()
 red_button.clear_event_bits()
 green_button.clear_event_bits()
 
-while True:   
+# while True:   
         
-    if red_button.is_button_pressed() == True:
-        print("\nThe first button is pressed!")
+#     if red_button.is_button_pressed() == True:
+#         print("\nThe first button is pressed!")
 
-    if green_button.is_button_pressed() == True:
-        print("\nThe second button is pressed!")
+#     if green_button.is_button_pressed() == True:
+#         print("\nThe second button is pressed!")
         
-    time.sleep(0.02)
+#     time.sleep(0.02)
 
 while True:
     
