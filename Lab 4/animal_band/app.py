@@ -13,10 +13,10 @@ import busio
 import qwiic_button 
 
 
-YELLOW_INDEX = 9
-GREEN_INDEX = 11
+YELLOW_INDEX = 6
+BLACK_INDEX = 11
 RED_INDEX = 5
-WHITE_INDEX = 2
+WHITE_INDEX = 0
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -59,7 +59,7 @@ x = 0
 
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
-font2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
+font2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 10)
 
 red_button.clear_event_bits()
 green_button.clear_event_bits()
@@ -67,7 +67,7 @@ green_button.clear_event_bits()
 while True:
 
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    draw.text((x, top), "Animal Band!", font=font, fill=255)
+    draw.text((x, top), "Animal Band!", font=font, fill=209)
     disp.image(image)
     disp.show()
     
@@ -80,7 +80,7 @@ while True:
     
     while True:
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
-        draw.text((x, top), "Recording...", font=font, fill=255)
+        draw.text((x, top), "Recording...", font=font, fill=209)
         disp.image(image)
         disp.show()
         if red_button.has_button_been_clicked():
@@ -90,20 +90,20 @@ while True:
             if mpr121[i].value:
                 print(f"Twizzler {i} touched!")
         if mpr121[YELLOW_INDEX].value: 
-            subprocess.Popen(['aplay', 'llama.wav'], start_new_session=True)
-        if mpr121[GREEN_INDEX].value: 
-            subprocess.Popen(['aplay', 'bear.wav'], start_new_session=True)
-        if mpr121[RED_INDEX].value: 
             subprocess.Popen(['aplay', 'fox.wav'], start_new_session=True)
-        if mpr121[WHITE_INDEX].value: 
+        if mpr121[BLACK_INDEX].value: 
+            subprocess.Popen(['aplay', 'llama.wav'], start_new_session=True)
+        if mpr121[RED_INDEX].value: 
             subprocess.Popen(['aplay', 'hello.wav'], start_new_session=True)
+        if mpr121[WHITE_INDEX].value: 
+            subprocess.Popen(['aplay', 'bear.wav'], start_new_session=True)
         time.sleep(0.1)  # Small delay to keep from spamming output messages.
 
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
     MSG_1 = "You have a recording"
     MSG_2 = "to play"
     draw.text((x, top), MSG_1, font=font2, fill=255)
-    draw.text((x, top + font.getsize(MSG_1)[1]), MSG_2, font=font2, fill=255)
+    draw.text((x, top + font.getsize(MSG_1)[1]), MSG_2, font=font2, fill=209)
     disp.image(image)
     disp.show()
 
@@ -114,7 +114,7 @@ while True:
             break
     
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    draw.text((x, top), "Playing...", font=font2, fill=255)
+    draw.text((x, top), "Playing...", font=font2, fill=209)
     disp.image(image)
     disp.show()
 
