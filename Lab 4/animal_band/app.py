@@ -59,6 +59,7 @@ x = 0
 
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
+font2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
 
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -68,6 +69,17 @@ disp.show()
 
 red_button.clear_event_bits()
 green_button.clear_event_bits()
+
+while True:   
+        
+    if red_button.is_button_pressed() == True:
+        print("\nThe first button is pressed!")
+
+    if green_button.is_button_pressed() == True:
+        print("\nThe second button is pressed!")
+        
+    time.sleep(0.02)
+
 while True:
     
     while True:
@@ -99,29 +111,21 @@ while True:
         time.sleep(0.1)  # Small delay to keep from spamming output messages.
 
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    draw.text((x, top), "You have a recording to play", font=font, fill=255)
+    draw.text((x, top), "You have a recording to play", font=font2, fill=255)
     disp.image(image)
     disp.show()
 
     while True:
         time.sleep(0.02)
         if green_button.has_button_been_clicked():
+            print("????")
             green_button.clear_event_bits()
             break
 
 
 
     
-    
-while True:   
-        
-    if red_button.is_button_pressed() == True:
-        print("\nThe first button is pressed!")
 
-    if green_button.is_button_pressed() == True:
-        print("\nThe second button is pressed!")
-        
-    time.sleep(0.02)
 
 
 
