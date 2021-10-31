@@ -101,6 +101,10 @@ pi@ixe00:~/openCV-examples/object-detection $ python detect.py
 **\*\*\*Try each of the following four examples in the `openCV-examples`, include screenshots of your use and write about one design for each example that might work based on the individual benefits to each algorithm.\*\*\***
 
 ![Contours](./images/contours_detection.png)
+
+ Contours detection could be used in a image processing app for artists. 
+
+
 ![Face detection](./images/face_detection.png)
 ![Flow detection](./images/flow_detection.png)
 ![Object detection](./images/object_detection.png)

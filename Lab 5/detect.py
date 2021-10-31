@@ -29,42 +29,50 @@ else:
       img = cv2.imread("../data/test.jpg")
       print("Using default image.")
 
+previous_count = 0
 
 while(True):
-    if webCam:
-        ret, img = cap.read()
+   if webCam:
+      ret, img = cap.read()
 
-    rows, cols, channels = img.shape
+   rows, cols, channels = img.shape
 
-    # Use the given image as input, which needs to be blob(s).
-    tensorflowNet.setInput(cv2.dnn.blobFromImage(img, size=(300, 300), swapRB=True, crop=False))
+   # Use the given image as input, which needs to be blob(s).
+   tensorflowNet.setInput(cv2.dnn.blobFromImage(img, size=(300, 300), swapRB=True, crop=False))
 
-    # Runs a forward pass to compute the net output
-    networkOutput = tensorflowNet.forward()
+   # Runs a forward pass to compute the net output
+   networkOutput = tensorflowNet.forward()
 
-    # Loop on the outputs
-    for detection in networkOutput[0,0]:
-        score = float(detection[2])
-        if score > 0.2:
-            left = detection[3] * cols
-            top = detection[4] * rows
-            right = detection[5] * cols
-            bottom = detection[6] * rows
+   object_count = 0
 
-            #draw a red rectangle around detected objects
-            cv2.rectangle(img, (int(left), int(top)), (int(right), int(bottom)), (0, 0, 255), thickness=2)
+   # Loop on the outputs
+   for detection in networkOutput[0,0]:
+      score = float(detection[2])
+      if score > 0.2:
+         object_count += 1
+         left = detection[3] * cols
+         top = detection[4] * rows
+         right = detection[5] * cols
+         bottom = detection[6] * rows
 
-    if webCam:
-        if sys.argv[-1] == "noWindow":
-           print("Finished a frame")
-           cv2.imwrite('detected_out.jpg',img)
-           continue
-        cv2.imshow('detected (press q to quit)',img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
-            break
-    else:
-        break
+         #draw a red rectangle around detected objects
+         cv2.rectangle(img, (int(left), int(top)), (int(right), int(bottom)), (0, 0, 255), thickness=2)
+   
+   if object_count != previous_count:
+      previous_count = object_count
+      print("Object count: " + object_count)
+
+   if webCam:
+      if sys.argv[-1] == "noWindow":
+         print("Finished a frame")
+         cv2.imwrite('detected_out.jpg',img)
+         continue
+      cv2.imshow('detected (press q to quit)',img)
+      if cv2.waitKey(1) & 0xFF == ord('q'):
+         cap.release()
+         break
+   else:
+      break
 
 cv2.imwrite('detected_out.jpg',img)
 cv2.destroyAllWindows()
