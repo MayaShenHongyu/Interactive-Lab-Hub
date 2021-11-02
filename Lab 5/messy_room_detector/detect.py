@@ -4,6 +4,7 @@
 
 import numpy as np
 import cv2
+import subprocess
 import sys
 # Load a model imported from Tensorflow
 tensorflowNet = cv2.dnn.readNetFromTensorflow('frozen_inference_graph.pb', 'ssd_mobilenet_v2_coco_2018_03_29.pbtxt')
@@ -29,7 +30,18 @@ else:
       img = cv2.imread("../data/test.jpg")
       print("Using default image.")
 
+def speak(instruction):
+    command = """
+        say() { 
+            local IFS=+;/usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols "http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=$*&tl=en"; 
+        } ; 
+    """ + f"say '{instruction}'"
+    subprocess.call(command, shell=True)
+
 previous_count = 0
+alarm_triggered = False
+MESSY_THRESHOLD = 6
+CLEAN_THRESHOLD = 3
 
 while(True):
    if webCam:
@@ -48,7 +60,7 @@ while(True):
    # Loop on the outputs
    for detection in networkOutput[0,0]:
       score = float(detection[2])
-      if score > 0.2:
+      if score > 0.1:
          object_count += 1
          left = detection[3] * cols
          top = detection[4] * rows
@@ -60,7 +72,15 @@ while(True):
    
    if object_count != previous_count:
       previous_count = object_count
-      print("Object count: " + str(object_count))
+      print("Object count: " + object_count)
+
+   if object_count > MESSY_THRESHOLD and not alarm_triggered:
+      speak("Clean the table please! It’s too messy!")
+      alarm_triggered = True
+      print("WARNING: You should clean your table!")
+   if object_count <= CLEAN_THRESHOLD and alarm_triggered:
+      speak("Good job! Your table is clean again.")
+      alarm_triggered = False
 
    if webCam:
       if sys.argv[-1] == "noWindow":
