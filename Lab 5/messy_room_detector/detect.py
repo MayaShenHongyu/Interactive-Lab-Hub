@@ -42,7 +42,7 @@ previous_count = 0
 alarm_triggered = False
 MESSY_THRESHOLD = 6
 CLEAN_THRESHOLD = 3
-
+speak("Hello")
 while(True):
    if webCam:
       ret, img = cap.read()
