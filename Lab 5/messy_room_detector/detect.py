@@ -72,7 +72,7 @@ while(True):
    
    if object_count != previous_count:
       previous_count = object_count
-      print("Object count: " + object_count)
+      print("Object count: " + str(object_count))
 
    if object_count > MESSY_THRESHOLD and not alarm_triggered:
       speak("Clean the table please! It’s too messy!")
