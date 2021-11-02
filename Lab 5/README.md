@@ -100,14 +100,29 @@ pi@ixe00:~/openCV-examples/object-detection $ python detect.py
 
 **\*\*\*Try each of the following four examples in the `openCV-examples`, include screenshots of your use and write about one design for each example that might work based on the individual benefits to each algorithm.\*\*\***
 
+### Contours
+
 ![Contours](./images/contours_detection.png)
 
- Contours detection could be used in a image processing app for artists. 
+Contours detection could be used in an image processing app for artists. Lines and contours detected by the system could be processed into different paint textures or brushes, hence auto generating art pieces for digital artists. 
 
+### Face detection
 
 ![Face detection](./images/face_detection.png)
+
+Face detection could be integrated into an automatic camera for taking group photos. When everyone’s smiling, the camera takes a picture; when someone is not smiling, it gives an alarm.
+
+### Flow detection
+
 ![Flow detection](./images/flow_detection.png)
+
+Flow detection could be used in athletic training. During training for throwing sports such as javelin, discus, hammer and shot, the system can track the object thrown by athletes and draw the curve. Coaches and athletes themselves can directly observe their performances and adjust strength and angles of throws based on the curves.
+
+### Object detection
+
 ![Object detection](./images/object_detection.png)
+
+Object detection could be used to remind people to clean rooms. If there are too many objects on the table/on the floor, the system gives an alarm to tell users that their rooms are messy. Users can also adjust the level of “messy” based on their current room setups. 
 
 #### MediaPipe
 
@@ -147,6 +162,10 @@ Try the two main features of this script: 1) pinching for percentage control, an
 
 (You might also consider how this notion of percentage control with hand tracking might be used in some of the physical UI you may have experimented with in the last lab, for instance in controlling a servo or rotary encoder.)
 
+![1](./images/media_pipe1.png)
+![2](./images/media_pipe2.png)
+
+Hand pose tracking could be used to implement a translator for sign language. This device consists of a camera, a speaker, and a processor for translation. It could be clipped onto the user’s collars so that the camera could detect hand motion in front of the user’s chest. The camera captures hand motion, the processor translates it into text, then the speaker reads the translated text out loud. This way, people with congenital deafness can communicate with others smoothly.
 
 
 #### Teachable Machines
@@ -183,6 +202,10 @@ This might take a while to get fully installed. After installation, connect your
 
 
 *Don't forget to run ```deactivate``` to end the Teachable Machines demo, and to reactivate with ```source tmachine/bin/activate``` when you want to use it again.*
+
+![Teachable machine](./images/teachable_machine.png)
+
+For the Teachable Machines, we tried to use this to detect a certain speaker’s words in a noisy room when there are other people talking. We intentionally recorded background sounds with noises and other people’s voices, and it turned out that Teachable Machine could tell the speaker from others from the training. We could possibly use it for class participation documentation. With the system having each student’s voice recorded in the sample set, it can tell how much each student is contributing to the group discussions. 
 
 
 #### Filtering, FFTs, and Time Series data. (optional)
