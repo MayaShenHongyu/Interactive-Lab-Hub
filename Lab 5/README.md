@@ -247,15 +247,15 @@ For example:
 
 The system is supposed to detect objects on the table and display the amount of objects. It does detect the objects when the camera is stable and when the objects placed on the table have clear shapes and colors.
 
-1. When does it fail?
+2. When does it fail?
 
 The system fails when 1) the camera captures objects that are not on the table, so the detected number of objects exceeds the actual number; 2) the objects don’t have clear shapes and colors, so these kinds of objects are not successfully detected.
 
-1. When it fails, why does it fail?
+3. When it fails, why does it fail?
 
 First off, stability is a crucial factor that decides whether the system can detect the objects. When the camera is not stabilized, it takes longer to detect the objects and would fail to do so sometimes. Secondly, we found that placing the camera from different angles sometimes led to different results. Also, the lighting and colors of the objects can influence if the system successfully detects the objects.
 
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+4. Based on the behavior you have seen, what other scenarios could cause problems?
 
 Besides the shapes and colors of the object itself, the contrast between the object and the surrounding would affect whether it can be detected. In addition, the way of putting several objects together would change the number of objects being detected. For example, if two objects are stacked up and they overlap each other, the system would perceive them as a single object.
 
@@ -264,15 +264,15 @@ Besides the shapes and colors of the object itself, the contrast between the obj
 
 Since our device is designed to detect how messy the table is, users might not be fully aware of the uncertainties in the system unless specifically marked. People often place objects on top of each other to save space. For example, they might put a water bottle on top of a stack of books. For people whose table is messier, they might also put random objects like paper towels on the table while being unaware that the system might not detect it. 
 
-1. How bad would they be impacted by a miss classification?
+2. How bad would they be impacted by a miss classification?
 
 If there are many objects on the table but the system fails to detect them, for example, tissues, then users would not know that they need to clean the room and leave the room messy. Another scenario is that when there is nothing on the table but the system detects it as messy. For example, the camera is not at the right angle and includes too many objects in the background. Users would be annoyed by the repetitive sound from the system that tells them to clean the table.
 
-1. How could change your interactive system to address this?
+3. How could change your interactive system to address this?
 
 To address the issue that the system might count multiple objects stacked on top of each other as a single object, we could instead use the sum of areas of the objects (areas of red rectangles) instead of object count as the messiness indicator. One concern is to differentiate between objects on the table and the table itself. If the system regards the table as a big object placed onto the table, even if it is clean, it will still regard it as messy.
 
-1. Are there optimizations you can try to do on your sense-making algorithm.
+4. Are there optimizations you can try to do on your sense-making algorithm.
 
 To address the issue that objects are harder to detect when it has low contrast with the color of the table, we could change the “score” threshold in code that determines if something is an object. The current threshold is 0.2. We could plan around with this score and find the optimal one.
 
