@@ -81,7 +81,7 @@ while(True):
    # Loop on the outputs
    for detection in networkOutput[0,0]:
       score = float(detection[2])
-      if score > 0.2:
+      if score > 0.23:
          object_count += 1
          left = detection[3] * cols
          top = detection[4] * rows
