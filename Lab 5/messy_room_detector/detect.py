@@ -57,7 +57,7 @@ def speak(instruction):
     subprocess.call(command, shell=True)
 
 previous_count = 0
-alarm_triggered = False
+previous_stage = None
 is_cleaning = False
 
 MESSY_THRESHOLD = 8
@@ -97,20 +97,28 @@ while(True):
    
       if is_cleaning:
          if object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
-            speak("It is getting better! Way to go")
-            red_button.LED_off()
+            if previous_stage != "better":
+               speak("It is getting better! Way to go")
+               red_button.LED_off()
+               previous_stage = "better"
          elif object_count <= CLEAN_THRESHOLD:
-            green_button.LED_on(100)
-            speak("You cleaned your table. Good job!")
-            is_cleaning = False
+            if previous_stage != "cleaned":
+               green_button.LED_on(100)
+               speak("You cleaned your table. Good job!")
+               is_cleaning = False
+               previous_stage = "cleaned"
       else:
          if object_count > MESSY_THRESHOLD:
-            red_button.LED_config(100, 500, 100)
-            speak("The table is too messy. Please clean it!")
-            is_cleaning = True
+            if previous_stage != "messy":
+               red_button.LED_config(100, 500, 100)
+               speak("The table is too messy. Please clean it!")
+               is_cleaning = True
+               previous_stage = "messy"
          elif object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
-            speak("Your table is getting messy!")
-            green_button.LED_off()
+            if previous_stage != "getting messy":
+               speak("Your table is getting messy!")
+               green_button.LED_off()
+               previous_stage = "getting messy"
 
    if webCam:
       if sys.argv[-1] == "noWindow":
