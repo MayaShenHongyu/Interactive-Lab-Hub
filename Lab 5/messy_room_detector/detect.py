@@ -81,7 +81,7 @@ while(True):
    # Loop on the outputs
    for detection in networkOutput[0,0]:
       score = float(detection[2])
-      if score > 0.18:
+      if score > 0.19:
          object_count += 1
          left = detection[3] * cols
          top = detection[4] * rows
@@ -100,13 +100,13 @@ while(True):
          speak("It is getting better! Way to go")
          red_button.LED_off()
       elif object_count <= CLEAN_THRESHOLD:
-         speak("You cleaned your table. Good job!")
          green_button.LED_on(100)
+         speak("You cleaned your table. Good job!")
          is_cleaning = False
    else:
       if object_count > MESSY_THRESHOLD:
-         speak("The table is too messy. Please clean it!")
          red_button.LED_config(100, 500, 100)
+         speak("The table is too messy. Please clean it!")
          is_cleaning = True
       elif object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
          speak("Your table is getting messy!")
