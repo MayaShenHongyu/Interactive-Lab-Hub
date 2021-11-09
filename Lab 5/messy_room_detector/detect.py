@@ -95,22 +95,22 @@ while(True):
       previous_count = object_count
       print("Object count: " + str(object_count))
    
-   if is_cleaning:
-      if object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
-         speak("It is getting better! Way to go")
-         red_button.LED_off()
-      elif object_count <= CLEAN_THRESHOLD:
-         green_button.LED_on(100)
-         speak("You cleaned your table. Good job!")
-         is_cleaning = False
-   else:
-      if object_count > MESSY_THRESHOLD:
-         red_button.LED_config(100, 500, 100)
-         speak("The table is too messy. Please clean it!")
-         is_cleaning = True
-      elif object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
-         speak("Your table is getting messy!")
-         green_button.LED_off()
+      if is_cleaning:
+         if object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
+            speak("It is getting better! Way to go")
+            red_button.LED_off()
+         elif object_count <= CLEAN_THRESHOLD:
+            green_button.LED_on(100)
+            speak("You cleaned your table. Good job!")
+            is_cleaning = False
+      else:
+         if object_count > MESSY_THRESHOLD:
+            red_button.LED_config(100, 500, 100)
+            speak("The table is too messy. Please clean it!")
+            is_cleaning = True
+         elif object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
+            speak("Your table is getting messy!")
+            green_button.LED_off()
 
    if webCam:
       if sys.argv[-1] == "noWindow":
