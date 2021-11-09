@@ -6,6 +6,24 @@ import numpy as np
 import cv2
 import subprocess
 import sys
+import qwiic_button 
+
+### Initialize Buttons
+
+red_button = qwiic_button.QwiicButton()
+green_button = qwiic_button.QwiicButton(0x6E)
+
+if red_button.begin() == False:
+    print("The Red Qwiic Button isn't connected to the system. Please check your connection")
+
+if green_button.begin() == False:
+    print("The Green Qwiic Button isn't connected to the system. Please check your connection")
+
+red_button.LED_config(250, 1000, 200)
+green_button.LED_on(100)
+
+### Initialize camera & tensorflow
+
 # Load a model imported from Tensorflow
 tensorflowNet = cv2.dnn.readNetFromTensorflow('frozen_inference_graph.pb', 'ssd_mobilenet_v2_coco_2018_03_29.pbtxt')
 
@@ -30,6 +48,9 @@ else:
       img = cv2.imread("../data/test.jpg")
       print("Using default image.")
 
+
+
+
 def speak(instruction):
     command = """
         say() { 
@@ -40,9 +61,10 @@ def speak(instruction):
 
 previous_count = 0
 alarm_triggered = False
-MESSY_THRESHOLD = 6
-CLEAN_THRESHOLD = 3
-speak("Hello")
+
+MESSY_THRESHOLD = 8
+CLEAN_THRESHOLD = 4
+
 while(True):
    if webCam:
       ret, img = cap.read()
