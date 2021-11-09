@@ -1,5 +1,7 @@
 # Observant Systems
 
+Collaboration with Hongyu Shen, Ruby Pan, Zhenghe Wang
+
 
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
 Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
@@ -317,3 +319,15 @@ When the number of objects exceeds a certain limit, the warining will be trigger
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
+
+For part 2, we wish to improve the messy room detector system by adding both voice and lighting feedback. Both the voice and lighting feedback are designed to enhance convenience and promote user accessibility. When the system finds the designated area “messy” according to the user’s personalized standard, our system will speak out loud and tell the user to clean up the area. The light works simultaneously with a similar functionality. When the area is detected as “messy”, the red light will flash. With these two add-on functions, users won’t have to walk to the screen and stare at it to figure out if the area is messy. Users with disabilities can also easily get feedback from the detector through either voice or lighting. 
+
+For future updates, we hope the system can interact with the user through voice command. For example, the user can ask the system: “is my room messy?” or ask the system to change the color or ambience of the light in the room. 
+
+
+#### Storyboard
+![Storyboard](./images/storyboard.jpg)
+
+#### Demo
+
+[Demo video](https://drive.google.com/file/d/17KsD2CheAvnc8jD_lYvpnaWKuil_R6ux/view?usp=sharing)
