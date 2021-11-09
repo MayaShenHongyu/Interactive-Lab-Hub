@@ -19,9 +19,6 @@ if red_button.begin() == False:
 if green_button.begin() == False:
     print("The Green Qwiic Button isn't connected to the system. Please check your connection")
 
-red_button.LED_config(250, 1000, 200)
-green_button.LED_on(100)
-
 ### Initialize camera & tensorflow
 
 # Load a model imported from Tensorflow
@@ -61,8 +58,10 @@ def speak(instruction):
 
 previous_count = 0
 alarm_triggered = False
+is_cleaning = False
 
 MESSY_THRESHOLD = 8
+MIDDLE_THRESHOLD = 6
 CLEAN_THRESHOLD = 4
 
 while(True):
@@ -95,14 +94,23 @@ while(True):
    if object_count != previous_count:
       previous_count = object_count
       print("Object count: " + str(object_count))
-
-   if object_count > MESSY_THRESHOLD and not alarm_triggered:
-      speak("Clean the table please! It’s too messy!")
-      alarm_triggered = True
-      print("WARNING: You should clean your table!")
-   if object_count <= CLEAN_THRESHOLD and alarm_triggered:
-      speak("Good job! Your table is clean again.")
-      alarm_triggered = False
+   
+   if is_cleaning:
+      if object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
+         speak("It is getting better! Way to go")
+         red_button.LED_off()
+      elif object_count <= CLEAN_THRESHOLD:
+         speak("You cleaned your table. Good job!")
+         green_button.LED_on(100)
+         is_cleaning = False
+   else:
+      if object_count > MESSY_THRESHOLD:
+         speak("The table is too messy. Please clean it!")
+         red_button.LED_config(100, 500, 100)
+         is_cleaning = True
+      elif object_count <= MESSY_THRESHOLD and object_count > MIDDLE_THRESHOLD:
+         speak("Your table is getting messy!")
+         green_button.LED_off()
 
    if webCam:
       if sys.argv[-1] == "noWindow":
