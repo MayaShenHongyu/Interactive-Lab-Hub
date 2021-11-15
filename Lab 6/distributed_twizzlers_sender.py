@@ -18,7 +18,7 @@ topic = 'IDD/your/topic/here'
 
 i2c = busio.I2C(board.SCL, board.SDA)
 devices = i2c.scan()
-i2c.unlock()
+# i2c.unlock()
 print('I2C devices found:', [hex(n) for n in devices])
 
 mpr121 = adafruit_mpr121.MPR121(i2c)
