@@ -107,8 +107,15 @@ Plug in the capacitive sensor board with the Qwiic connector. Use the alligator 
 
 **\*\*\*Include a picture of your setup here: what did you see on MQTT Explorer?\*\*\***
 
+![1](./imgs/twizzlers_1.jpg)
+![2](./imgs/twizzlers_2.png)
+
 **\*\*\*Pick another part in your kit and try to implement the data streaming with it.\*\*\***
 
+We picked the qwicc buttons.
+
+![1](./imgs/buttons_1.jpg)
+![2](./imgs/buttons_2.png)
 
 ### Part D
 ### The One True ColorNet
