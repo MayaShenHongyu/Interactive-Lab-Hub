@@ -1,5 +1,6 @@
 import qwiic_button 
 import paho.mqtt.client as mqtt
+import uuid
 
 client = mqtt.Client(str(uuid.uuid1()))
 client.tls_set()
