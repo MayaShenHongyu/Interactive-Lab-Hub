@@ -50,7 +50,7 @@ def on_connect(client, userdata, flags, rc):
 
 # this is the callback that gets called each time a message is recived
 def on_message(cleint, userdata, msg):
-	# print(f"topic: {msg.topic} msg: {msg.payload.decode('UTF-8')}")
+	print(f"topic: {msg.topic} msg: {msg.payload.decode('UTF-8')}")
 	# you can filter by topics
 	# if msg.topic == 'IDD/some/other/topic': do thing
     if msg.payload.decode('UTF-8') == str(DEVICE_ID) and requested_toilet_paper:
