@@ -60,6 +60,10 @@ def on_message(cleint, userdata, msg):
     else:
         red_button.LED_off()
 
+# attach out callbacks to the client
+client.on_connect = on_connect
+client.on_message = on_message
+
 client.loop_start()
 
 while True:
