@@ -148,6 +148,8 @@ Of course not! You can go to [https://one-true-colornet.glitch.me/](https://one-
 
 **\*\*\*Can you set up the script that can read the color anyone else publish and display it on your screen?\*\*\***
 
+We set up the script `read_colors.py` to read the color posted to topic "IDD/colors", parse it, and display it on my screen.
+
 
 ### Part E
 ### Make it your own
