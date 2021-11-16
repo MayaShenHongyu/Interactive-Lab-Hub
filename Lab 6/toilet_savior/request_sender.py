@@ -62,17 +62,17 @@ client.loop_start()
 
 red_button.clear_event_bits()
 red_button.LED_off()
-while True:
-    if red_button.has_button_been_clicked():
-        red_button.clear_event_bits()
-        if requested_toilet_paper == False:
-            client.publish(request_topic, "Need toilet paper!")
-            requested_toilet_paper = True
-            red_button.LED_on(100)
-        else:
-            client.publish(request_topic, "No longer need toilet paper!")
-            requested_toilet_paper = False
-            red_button.LED_off()
-    time.sleep(0.2)
+# while True:
+#     if red_button.has_button_been_clicked():
+#         red_button.clear_event_bits()
+#         if requested_toilet_paper == False:
+#             client.publish(request_topic, "Need toilet paper!")
+#             requested_toilet_paper = True
+#             red_button.LED_on(100)
+#         else:
+#             client.publish(request_topic, "No longer need toilet paper!")
+#             requested_toilet_paper = False
+#             red_button.LED_off()
+#     time.sleep(0.2)
 
 
