@@ -57,6 +57,8 @@ def on_message(cleint, userdata, msg):
 
 client.loop_start()
 
+red_button.clear_event_bits()
+red_button.LED_off()
 while True:
     if red_button.has_button_been_clicked():
         red_button.clear_event_bits()
