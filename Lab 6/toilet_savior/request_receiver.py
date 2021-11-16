@@ -29,7 +29,7 @@ client.tls_set()
 client.username_pw_set('idd', 'device@theFarm')
 
 
-request_topic = 'IDD/toilet_savior/request'
+request_topic = 'IDD/toilet_savior/request/#'
 respond_topic = 'IDD/toilet_savior/respond'
 
 #this is the callback that gets called once we connect to the broker. 
