@@ -86,6 +86,17 @@ Once connected, you should be able to see all the messages under the IDD topic. 
 
 **\*\*\*Consider how you might use this messaging system on interactive devices, and draw/write down 5 ideas here.\*\*\***
 
+1. We can use the messaging system for internet cafes. When people are in a game and cannot type or call for service, they can use the system to call for support at the front desk or technical support.
+
+2. We can use the text2speech algorithm to read out messages for people with visual impairments. 
+
+3. We can use the interactive device to design an alarm system for restrooms. When someone is in the restroom but runs out of toilet paper, the system can make the alarm to people in other rooms to ask for help. They can also confirm that they have received the notice and will come to help.
+
+4. We can use it for dog barking notifications. When owners are outside but the dog is barking, the system can detect that and send a message to the owner to check on their security camera if anything happened at home or to the pet.
+
+5. We can use the system for remote room temperature control. Paired with the voice assistant, the system takes input from the voice assistant about the room’s temperature. It will send a speech2text message to the household owner and they can give commands to adjust the temperature. 
+
+
 ### Part C
 ### Streaming a Sensor
 
@@ -158,11 +169,20 @@ Find at least one class (more are okay) partner, and design a distributed applic
 
 **\*\*\*1. Explain your design\*\*\*** For example, if you made a remote controlled banana piano, explain why anyone would want such a thing.
 
+We designed an interactive system for restrooms. Oftentimes people might forget to bring toilet paper or run out of it when they are using the restroom. They would need someone nearby to help them with the situation. Through our device, the person in the restroom can simply press the button and another device can receive the alarm of “Toilet x needs paper.” The person on the other end can confirm receiving the alarm and tell the person in the restroom that they will be coming for help by pressing the button. Then, the device in the restroom will make the alarm of “Confirmed, someone is on their  way to save you.”
+
+
 **\*\*\*2. Diagram the architecture of the system.\*\*\*** Be clear to document where input, output and computation occur, and label all parts and connections. For example, where is the banana, who is the banana player, where does the sound get played, and who is listening to the banana music?
+
+![storyboard](./imgs/storyboard.jpg)
 
 **\*\*\*3. Build a working prototype of the system.\*\*\*** Do think about the user interface: if someone encountered these bananas somewhere in the wild, would they know how to interact with them? Should they know what to expect?
 
+We wanted to design the device that displays clear texts instructing the user to press the button if they run out of toilet papers. In this way, users can understand how to use this interface. 
+
 **\*\*\*4. Document the working prototype in use.\*\*\*** It may be helpful to record a Zoom session where you should the input in one location clearly causing response in another location.
+
+[Demo video](https://drive.google.com/file/d/1amGAiWSM_eZdioKFixxdrIgmgTH6w3Q0/view?usp=sharing)
 
 <!--**\*\*\*5. BONUS (Wendy didn't approve this so you should probably ignore it)\*\*\*** get the whole class to run your code and make your distributed system BIGGER.-->
 
