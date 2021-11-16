@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import uuid
 import subprocess
 import qwiic_button 
+import time
 
 DEVICE_ID = 1
 
@@ -70,5 +71,6 @@ while True:
             client.publish(request_topic, "No longer need toilet paper!")
             requested_toilet_paper = False
             red_button.LED_off()
+        time.sleep(0.5)
 
 
