@@ -30,11 +30,6 @@ client.tls_set()
 # this is the username and pw we have setup for the class
 client.username_pw_set('idd', 'device@theFarm')
 
-#connect to the broker
-client.connect(
-    'farlab.infosci.cornell.edu',
-    port=8883)
-
 
 request_topic = 'IDD/toilet_savior/request/' + str(DEVICE_ID)
 respond_topic = 'IDD/toilet_savior/respond'
@@ -60,6 +55,11 @@ def on_message(cleint, userdata, msg):
 # attach out callbacks to the client
 client.on_connect = on_connect
 client.on_message = on_message
+
+#connect to the broker
+client.connect(
+    'farlab.infosci.cornell.edu',
+    port=8883)
 
 client.loop_start()
 
