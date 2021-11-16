@@ -59,6 +59,7 @@ def on_message(cleint, userdata, msg):
 
 
 # client.loop_start()
+client.loop_forever()
 
 red_button.clear_event_bits()
 red_button.LED_off()
