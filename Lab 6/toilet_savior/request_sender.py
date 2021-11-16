@@ -71,6 +71,6 @@ while True:
             client.publish(request_topic, "No longer need toilet paper!")
             requested_toilet_paper = False
             red_button.LED_off()
-        time.sleep(0.5)
+    time.sleep(0.2)
 
 
