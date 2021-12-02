@@ -37,7 +37,7 @@ def background_job():
     print('Hello from the background thread')
 
 
-schedule.every(5).second.do(background_job)
+schedule.every(5).seconds.do(background_job)
 
 
 if not os.path.exists("./model"):
