@@ -64,7 +64,7 @@ def recognize(pattern):
         print ("Audio file must be WAV format mono PCM.")
         exit (1)
 
-    rec = KaldiRecognizer(model, wf.getframerate(), pattern)
+    rec = KaldiRecognizer(model, wf.getframerate(), pattern.split())
 
     while True:
         data = wf.readframes(4000)
