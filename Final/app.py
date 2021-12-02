@@ -51,4 +51,4 @@ while True:
     record_user_input()
     r = recognize("cactus")
     if r:
-        speak("What's up?")
+        speak("What‘s up?")
