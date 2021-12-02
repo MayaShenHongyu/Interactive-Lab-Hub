@@ -99,7 +99,7 @@ def plant_summary():
 def measure_temp():
     print('Hello from the background thread')
     temp = mpu.temperature
-    print(f"Temperature: ${temp}")
+    print(f"Temperature: {temp}")
     payload = {'temperature': temp, 'time': time.strftime("%H:%M:%S\n")}
     # requests.put('https://httpbin.org/put', data=payload)
     # requests.get('https://httpbin.org/get', params=payload) # https://httpbin.org/get?key2=value2&key1=value1
@@ -108,7 +108,7 @@ def measure_temp():
 schedule.every(5).seconds.do(measure_temp)
 
 # Start the background thread
-stop_run_continuously = run_continuously(5)
+# stop_run_continuously = run_continuously(5)
 
 
 while True:
