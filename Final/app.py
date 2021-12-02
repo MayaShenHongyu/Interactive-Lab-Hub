@@ -25,7 +25,6 @@ def dont_understand():
 def record_user_input():
     subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
 
-
 def recognize(pattern):
     wf = wave.open(USER_INPUT_FILE, "rb")
     if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
@@ -47,8 +46,56 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
+
+def initilaize_plant():
+    pass
+
+def tell_joke():
+    speak("Tells joke")
+    pass
+
+def tell_time():
+    speak("Tells time")
+    pass
+
+def plant_summary():
+    speak("Tells plant summary")
+    pass
+
 while True:
     record_user_input()
-    r = recognize("cactus")
-    if r:
-        speak("What‘s up?")
+    if recognize("cactus"):
+        firstTime = True
+        gone_silent = False
+        while True:
+            if firstTime:
+                speak("What‘s up?")
+            elif gone_silent:
+                speak("You can ask me what time is it or tell you a joke.")
+            else:
+                speak("Do you want to ask me anything else?")
+            
+            firstTime = False
+
+            record_user_input()
+            key = recognize("joke time how doing water temperature")
+            if key:
+                gone_silent = False
+                if "joke" in key:
+                    tell_joke()
+                elif "time" in key:
+                    tell_time()
+                elif "how" in key or "doing" in key:
+                    plant_summary()
+                elif "water" in key:
+                    pass
+                elif "temperature" in key:
+                    pass
+            else:
+                if not gone_silent:
+                    gone_silent = True
+                    speak("Are you still there?")
+                else:
+                    speak("Ok. Guess you‘re not there. Catch you later.")
+                    break
+            
