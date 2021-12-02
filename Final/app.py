@@ -66,19 +66,23 @@ while True:
     record_user_input()
     if recognize("cactus"):
         firstTime = True
-        gone_silent = False
+        times_silent = 0
         while True:
             if firstTime:
                 speak("What‘s up?")
-            elif gone_silent:
-                speak("You can ask me what time is it or tell you a joke.")
-            else:
+            elif gone_silent == 4:
                 speak("Do you want to ask me anything else?")
+                speak("I can tell you a joke if you‘d like.")
             
             firstTime = False
 
             record_user_input()
-            key = recognize("joke time how doing water temperature")
+            key = recognize("no joke time how doing water temperature")
+            
+            if "no" in key and gone_silent == 4:
+                speak("Ok. Catch you later.")
+                break
+            
             if key:
                 gone_silent = False
                 if "joke" in key:
@@ -92,10 +96,8 @@ while True:
                 elif "temperature" in key:
                     pass
             else:
-                if not gone_silent:
-                    gone_silent = True
-                    speak("Are you still there?")
-                else:
+                times_silent += 1
+                if gone_silent == 6:
                     speak("Ok. Guess you‘re not there. Catch you later.")
                     break
             
