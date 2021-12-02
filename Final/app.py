@@ -3,6 +3,42 @@ import subprocess
 import os
 import wave
 import json
+import threading
+import time
+import schedule
+
+
+def run_continuously(interval=1):
+    """Continuously run, while executing pending jobs at each
+    elapsed time interval.
+    @return cease_continuous_run: threading. Event which can
+    be set to cease continuous run. Please note that it is
+    *intended behavior that run_continuously() does not run
+    missed jobs*. For example, if you've registered a job that
+    should run every minute and you set a continuous run
+    interval of one hour then your job won't be run 60 times
+    at each interval but only once.
+    """
+    cease_continuous_run = threading.Event()
+
+    class ScheduleThread(threading.Thread):
+        @classmethod
+        def run(cls):
+            while not cease_continuous_run.is_set():
+                schedule.run_pending()
+                time.sleep(interval)
+
+    continuous_thread = ScheduleThread()
+    continuous_thread.start()
+    return cease_continuous_run
+
+
+def background_job():
+    print('Hello from the background thread')
+
+
+schedule.every(5).second.do(background_job)
+
 
 if not os.path.exists("./model"):
     print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
@@ -62,6 +98,11 @@ def plant_summary():
     speak("Tells plant summary")
     pass
 
+
+# Start the background thread
+stop_run_continuously = run_continuously(5)
+
+
 while True:
     record_user_input()
     if recognize("cactus"):
@@ -69,17 +110,16 @@ while True:
         gone_silent = 0
         while True:
             if firstTime:
+                firstTime = False
                 speak("What‘s up?")
-            elif gone_silent == 4:
-                speak("Do you want to ask me anything else?")
-                speak("I can tell you a joke if you‘d like.")
-            
-            firstTime = False
+            elif gone_silent == 2:
+                speak("You still there? Do you want to ask me anything else?")
+                # speak("I can tell you a joke if you‘d like.")
 
             record_user_input()
             key = recognize("no joke time how doing water temperature")
             
-            if "no" in key and gone_silent == 4:
+            if "no" in key and gone_silent == 2:
                 speak("Ok. Catch you later.")
                 break
             
@@ -100,4 +140,9 @@ while True:
                 if gone_silent == 6:
                     speak("Ok. Guess you‘re not there. Catch you later.")
                     break
-            
+
+# Do some other things...
+time.sleep(10)
+
+# Stop the background thread
+stop_run_continuously.set()
