@@ -4,12 +4,12 @@ import os
 import wave
 import json
 
-if not os.path.exists("../model"):
+if not os.path.exists("./model"):
     print ("Please download the model from https://github.com/alphacep/vosk-api/blob/master/doc/models.md and unpack as 'model' in the current folder.")
     exit (1)
 
 USER_INPUT_FILE = "user_input.wav"
-model = Model("../model")
+model = Model("./model")
 
 def speak(instruction):
     command = """
