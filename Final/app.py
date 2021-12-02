@@ -33,11 +33,6 @@ def run_continuously(interval=1):
     return cease_continuous_run
 
 
-def background_job():
-    print('Hello from the background thread')
-
-
-schedule.every(5).seconds.do(background_job)
 
 
 if not os.path.exists("./model"):
@@ -54,9 +49,6 @@ def speak(instruction):
         } ; 
     """ + f"say '{instruction}'"
     subprocess.call(command, shell=True)
-
-def dont_understand():
-    speak("What, what are you saying? I don’t understand.")
 
 def record_user_input(time=5):
     subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d " + str(time) + " -t wav " + USER_INPUT_FILE, shell=True)
@@ -99,13 +91,19 @@ def plant_summary():
     pass
 
 
+def background_job():
+    print('Hello from the background thread')
+
+
+schedule.every(5).seconds.do(background_job)
+
 # Start the background thread
 stop_run_continuously = run_continuously(5)
 
 
 while True:
     record_user_input(3)
-    if recognize("cactus"):
+    if recognize("cactus hey"):
         firstTime = True
         gone_silent = 0
         while True:
