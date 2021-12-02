@@ -58,8 +58,8 @@ def speak(instruction):
 def dont_understand():
     speak("What, what are you saying? I don’t understand.")
 
-def record_user_input():
-    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
+def record_user_input(time=5):
+    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d " + str(time) + " -t wav " + USER_INPUT_FILE, shell=True)
 
 def recognize(pattern):
     wf = wave.open(USER_INPUT_FILE, "rb")
@@ -104,7 +104,7 @@ stop_run_continuously = run_continuously(5)
 
 
 while True:
-    record_user_input()
+    record_user_input(3)
     if recognize("cactus"):
         firstTime = True
         gone_silent = 0
