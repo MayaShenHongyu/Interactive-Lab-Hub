@@ -10,6 +10,7 @@ import board
 import adafruit_mpu6050
 import requests
 
+TEMP_OFFSET = -8
 
 def run_continuously(interval=1):
     """Continuously run, while executing pending jobs at each
@@ -99,7 +100,7 @@ def plant_summary():
 
 def measure_temp():
     print('Hello from the background thread')
-    temp = mpu.temperature
+    temp = mpu.temperature + TEMP_OFFSET
     print(f"Temperature: {temp}")
     payload = {'temperature': temp, 'time': time.strftime("%H:%M:%S\n")}
     # requests.put('https://httpbin.org/put', data=payload)
