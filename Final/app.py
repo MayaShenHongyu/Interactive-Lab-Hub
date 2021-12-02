@@ -56,8 +56,8 @@ def speak(instruction):
     subprocess.call(command, shell=True)
 
 def record_user_input(time=5):
-    # subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d " + str(time) + " -t wav " + USER_INPUT_FILE, shell=True)
-    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
+    subprocess.call(f"arecord -D hw:2,0 -f cd -c1 -r 48000 -d {time} -t wav " + USER_INPUT_FILE, shell=True)
+    # subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
 
 def recognize(pattern):
     wf = wave.open(USER_INPUT_FILE, "rb")
@@ -113,7 +113,7 @@ stop_run_continuously = run_continuously(5)
 
 
 while True:
-    record_user_input(2)
+    record_user_input(3)
     if recognize("cactus hey"):
         firstTime = True
         gone_silent = 0
