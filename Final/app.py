@@ -47,11 +47,8 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
-speak("Record now:")
-record_user_input()
-r = recognize("key [unk]")
-print(r)
-speak("Record now:")
-record_user_input()
-r = recognize("key")
-print(r)
+while True:
+    record_user_input()
+    r = recognize("cactus")
+    if r:
+        speak("What's up?")
