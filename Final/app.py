@@ -66,7 +66,7 @@ while True:
     record_user_input()
     if recognize("cactus"):
         firstTime = True
-        times_silent = 0
+        gone_silent = 0
         while True:
             if firstTime:
                 speak("What‘s up?")
@@ -84,7 +84,7 @@ while True:
                 break
             
             if key:
-                gone_silent = False
+                gone_silent = 0
                 if "joke" in key:
                     tell_joke()
                 elif "time" in key:
