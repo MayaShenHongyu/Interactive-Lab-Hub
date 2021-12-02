@@ -56,7 +56,8 @@ def speak(instruction):
     subprocess.call(command, shell=True)
 
 def record_user_input(time=5):
-    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d " + str(time) + " -t wav " + USER_INPUT_FILE, shell=True)
+    # subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d " + str(time) + " -t wav " + USER_INPUT_FILE, shell=True)
+    subprocess.call("arecord -D hw:2,0 -f cd -c1 -r 48000 -d 5 -t wav " + USER_INPUT_FILE, shell=True)
 
 def recognize(pattern):
     wf = wave.open(USER_INPUT_FILE, "rb")
