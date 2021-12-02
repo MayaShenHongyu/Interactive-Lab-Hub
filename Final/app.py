@@ -109,7 +109,7 @@ def measure_temp():
 schedule.every(5).seconds.do(measure_temp)
 
 # Start the background thread
-# stop_run_continuously = run_continuously(5)
+stop_run_continuously = run_continuously(5)
 
 
 while True:
