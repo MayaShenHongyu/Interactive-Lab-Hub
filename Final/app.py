@@ -96,7 +96,7 @@ while True:
                 elif "temperature" in key:
                     pass
             else:
-                times_silent += 1
+                gone_silent += 1
                 if gone_silent == 6:
                     speak("Ok. Guess you‘re not there. Catch you later.")
                     break
