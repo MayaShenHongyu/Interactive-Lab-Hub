@@ -88,6 +88,7 @@ def initilaize_plant():
 def tell_joke():
     speak("What do you call a cow with a twitch?")
     speak("Beef Jerky")
+    
     pass
 
 def tell_time():
@@ -102,7 +103,8 @@ def plant_summary():
 def measure_temp():
     print('Hello from the background thread')
     temp = mpu.temperature + TEMP_OFFSET
-    print(f"Temperature: {temp}")
+    t = time.strftime("%H:%M:%S\n")
+    print(f"Measured temperature at {t}: {temp}")
     payload = {'temperature': temp, 'time': time.strftime("%H:%M:%S\n")}
     # requests.put('https://httpbin.org/put', data=payload)
     # requests.get('https://httpbin.org/get', params=payload) # https://httpbin.org/get?key2=value2&key1=value1
@@ -130,6 +132,9 @@ while True:
             record_user_input()
             key = recognize("no joke time how doing water temperature")
             
+            if "no" == key and gone_silent == 2:
+                speak("Ok. Catch you later.")
+                break
             if key:
                 gone_silent = 0
                 if "joke" in key:
@@ -142,9 +147,6 @@ while True:
                     pass
                 elif "temperature" in key:
                     pass
-                elif "no" in key and gone_silent == 2:
-                    speak("Ok. Catch you later.")
-                    break
             else:
                 gone_silent += 1
                 if gone_silent == 6:
