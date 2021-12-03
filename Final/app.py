@@ -86,15 +86,16 @@ def initilaize_plant():
     pass
 
 def tell_joke():
-    speak("Tells joke")
+    speak("What do you call a cow with a twitch?")
+    speak("Beef Jerky")
     pass
 
 def tell_time():
-    speak("Tells time")
+    speak("It‘s eleven past 2. It‘s late. You should go to sleep soon. Just do IDD tomorrow.")
     pass
 
 def plant_summary():
-    speak("Tells plant summary")
+    speak("I‘m doing well.")
     pass
 
 
@@ -129,10 +130,6 @@ while True:
             record_user_input()
             key = recognize("no joke time how doing water temperature")
             
-            if "no" in key and gone_silent == 2:
-                speak("Ok. Catch you later.")
-                break
-            
             if key:
                 gone_silent = 0
                 if "joke" in key:
@@ -145,6 +142,9 @@ while True:
                     pass
                 elif "temperature" in key:
                     pass
+                elif "no" in key and gone_silent == 2:
+                    speak("Ok. Catch you later.")
+                    break
             else:
                 gone_silent += 1
                 if gone_silent == 6:
