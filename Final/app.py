@@ -101,7 +101,7 @@ def plant_summary():
 
 
 def measure_temp():
-    print('Hello from the background thread')
+    # print('Hello from the background thread')
     temp = mpu.temperature + TEMP_OFFSET
     t = time.strftime("%H:%M:%S")
     print(f"Measured temperature at {t}: {temp}")
