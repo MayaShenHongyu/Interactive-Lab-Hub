@@ -5,7 +5,7 @@ import wave
 import json
 import threading
 import time
-import thread
+# import thread
 # import schedule
 import board
 import adafruit_mpu6050
