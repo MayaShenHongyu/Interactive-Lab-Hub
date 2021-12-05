@@ -5,36 +5,59 @@ import wave
 import json
 import threading
 import time
-import schedule
+# import schedule
 import board
 import adafruit_mpu6050
 import requests
 
+from flask import Flask, jsonify, Response
+
+app = Flask(__name__)
+
+@app.route('/humidity')
+def humidity():
+
+    temp = mpu.temperature + TEMP_OFFSET
+
+    def long_running_get_data(**kwargs):
+        your_params = kwargs.get('post_data', {})
+
+    thread = threading.Thread(target=long_running_get_data, kwargs={
+                    'post_data': temp})
+    thread.start()
+    response = jsonify({"humidity": temp})
+    response.headers.add('Access-Control-Allow-Origin', '*') 
+    return response
+
+if __name__ == "__main__":
+    app.run(host="100.64.3.110", port=4000)
+    
+
 TEMP_OFFSET = -8
 
-def run_continuously(interval=1):
-    """Continuously run, while executing pending jobs at each
-    elapsed time interval.
-    @return cease_continuous_run: threading. Event which can
-    be set to cease continuous run. Please note that it is
-    *intended behavior that run_continuously() does not run
-    missed jobs*. For example, if you've registered a job that
-    should run every minute and you set a continuous run
-    interval of one hour then your job won't be run 60 times
-    at each interval but only once.
-    """
-    cease_continuous_run = threading.Event()
+# def run_continuously(interval=1):
+#     """Continuously run, while executing pending jobs at each
+#     elapsed time interval.
+#     @return cease_continuous_run: threading. Event which can
+#     be set to cease continuous run. Please note that it is
+#     *intended behavior that run_continuously() does not run
+#     missed jobs*. For example, if you've registered a job that
+#     should run every minute and you set a continuous run
+#     interval of one hour then your job won't be run 60 times
+#     at each interval but only once.
+#     """
+#     cease_continuous_run = threading.Event()
 
-    class ScheduleThread(threading.Thread):
-        @classmethod
-        def run(cls):
-            while not cease_continuous_run.is_set():
-                schedule.run_pending()
-                time.sleep(interval)
+#     class ScheduleThread(threading.Thread):
+#         @classmethod
+#         def run(cls):
+#             while not cease_continuous_run.is_set():
+#                 schedule.run_pending()
+#                 time.sleep(interval)
 
-    continuous_thread = ScheduleThread()
-    continuous_thread.start()
-    return cease_continuous_run
+#     continuous_thread = ScheduleThread()
+#     continuous_thread.start()
+#     return cease_continuous_run
 
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
@@ -110,10 +133,10 @@ def measure_temp():
     # requests.get('https://httpbin.org/get', params=payload) # https://httpbin.org/get?key2=value2&key1=value1
 
 
-schedule.every(5).seconds.do(measure_temp)
+# schedule.every(5).seconds.do(measure_temp)
 
-# Start the background thread
-stop_run_continuously = run_continuously(5)
+# # Start the background thread
+# stop_run_continuously = run_continuously(5)
 
 
 while True:
@@ -153,8 +176,12 @@ while True:
                     speak("Ok. Guess you‘re not there. Catch you later.")
                     break
 
-# Do some other things...
-time.sleep(10)
+# # Do some other things...
+# time.sleep(10)
 
-# Stop the background thread
-stop_run_continuously.set()
+# # Stop the background thread
+# stop_run_continuously.set()
+
+
+
+
