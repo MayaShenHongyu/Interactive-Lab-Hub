@@ -5,6 +5,7 @@ import wave
 import json
 import threading
 import time
+import thread
 # import schedule
 import board
 import adafruit_mpu6050
@@ -13,24 +14,26 @@ import requests
 from flask import Flask, jsonify, Response
 
 app = Flask(__name__)
-
+def flaskThread():
+    app.run(host="100.64.3.110", port=4000)
 @app.route('/humidity')
 def humidity():
 
     temp = mpu.temperature + TEMP_OFFSET
 
-    def long_running_get_data(**kwargs):
-        your_params = kwargs.get('post_data', {})
+    # def long_running_get_data(**kwargs):
+    #     your_params = kwargs.get('post_data', {})
 
-    thread = threading.Thread(target=long_running_get_data, kwargs={
-                    'post_data': temp})
-    thread.start()
+    # thread = threading.Thread(target=long_running_get_data, kwargs={
+    #                 'post_data': temp})
+    # thread.start()
     response = jsonify({"humidity": temp})
     response.headers.add('Access-Control-Allow-Origin', '*') 
     return response
 
 if __name__ == "__main__":
-    app.run(host="100.64.3.110", port=4000)
+    # app.run(host="100.64.3.110", port=4000)
+    threading.Thread(target=flaskThread).start()
     
 
 TEMP_OFFSET = -8
