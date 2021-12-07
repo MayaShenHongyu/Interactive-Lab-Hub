@@ -26,8 +26,8 @@ def flaskThread():
 
 @app.route('/sensor')
 def sensor():
-    temp = mpu.temperature + TEMP_OFFSET
-    response = jsonify({"temperature": temp})
+    # temp = get_temperature()
+    response = jsonify({"temperature": get_temperature()})
     response.headers.add('Access-Control-Allow-Origin', '*') 
     return response
 
@@ -110,14 +110,17 @@ def initilaize_plant():
     
     record_user_input(3)
     plant = recognize("ivy")
-    speak("Thank you!. I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
+
+    speak("I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
     speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
-    speak("I get thirsty every five days, but keep me humid! I‘ll also let you know if I need to drink more water.")
-    speak("I don’t bloom. I hope you’re not a flower person.")
-    speak("I don’t know if you have any other friends, but you’re my first one now, bestie.")
+    speak("I get thirsty every five days, but keep me humid! I‘ll let you know if I need to drink more water.")
+    speak("Also, I don’t bloom. I hope you’re not a flower person.")
+    time.sleep(0.5)
+    speak("I don’t know if you have any other friends, but you are my first one now, bestie.")
     
     time.sleep(0.5)
-    speak("Also, I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'done' when you’re done?")
+    speak("One more thing.")
+    speak("I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'done' when you’re done?")
     while True:
         record_user_input(3)
         result = recognize("done wait")
@@ -128,7 +131,7 @@ def initilaize_plant():
         time.sleep(3)
         speak("Say done when you’re done.")
     
-    time.sleep(0.5)
+    time.sleep(1)
     speak("Umm, try somewhere else. Here the temperature is 13 degree but my ideal temp is from 15 degree to 30 degree")
     speak("Let me know when you are done.")
 
@@ -144,7 +147,8 @@ def initilaize_plant():
 
     speak("This is a great place! I love the temperature and sunlight here!")
     time.sleep(1)
-    speak("If it’s alright with you, I will go rest now. Just say hey ivy when you need me. Catch you later!")
+    speak("If it’s alright with you, I will go rest now. Just say hey ivy if you need me.")
+    speak("Catch you later!")
 
     # tried_times = 0
 
@@ -181,7 +185,8 @@ def tell_joke():
     pass
 
 def tell_time():
-    speak("It‘s eleven past 2. It‘s late. You should go to sleep soon. Just do IDD tomorrow.")
+    speak("It‘s eleven past 2. It‘s late.")
+    speak("You should go to sleep soon. Just do IDD tomorrow.")
     pass
 
 def plant_summary():
@@ -189,12 +194,14 @@ def plant_summary():
     pass
 
 def play_music():
-    speak("Sure, this is my heroic entrtance theme.")
+    speak("Sure, this is my heroic entrance theme.")
     subprocess.call("aplay music.wav", shell=True)
+    speak("How do you like it?")
 
 def take_photo():
     speak("I mean, of course, you‘re the best looking person I‘ve ever seen.")
     subprocess.call("aplay camera.wav", shell=True)
+    time.sleep(1)
     speak("I uploaded the picture to the web portal. Go check it out!")
 
 initilaize_plant()
@@ -208,6 +215,8 @@ while True:
             if firstTime:
                 firstTime = False
                 speak("What‘s up?")
+                speak("You can ask me to play some music or tell you a joke.")
+                speak("I can also take a picture for you.")
             elif gone_silent == 2:
                 speak("You still there? Do you want to ask me anything else?")
                 # speak("I can tell you a joke if you‘d like.")
@@ -216,7 +225,8 @@ while True:
             key = recognize("no joke time photo picture music")
             
             if "no" == key and gone_silent == 2:
-                speak("Ok. Catch you later.")
+                speak("Ok. I‘ go rest now.")
+                speak("Catch you later!")
                 break
             if key:
                 gone_silent = 0
@@ -231,7 +241,8 @@ while True:
             else:
                 gone_silent += 1
                 if gone_silent == 6:
-                    speak("Ok. Guess you‘re not there. Catch you later.")
+                    speak("Ok. Guess you‘re not there.")
+                    speak("Catch you later!")
                     break
 
 # # Do some other things...
