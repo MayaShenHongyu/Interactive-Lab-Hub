@@ -215,17 +215,16 @@ while True:
             if firstTime:
                 firstTime = False
                 speak("What‘s up?")
-                speak("You can ask me to play some music or tell you a joke.")
-                speak("I can also take a picture for you.")
+                speak("You can ask me to play some music or tell you a joke. I can also take a picture for you.")
             elif gone_silent == 2:
                 speak("You still there? Do you want to ask me anything else?")
-                # speak("I can tell you a joke if you‘d like.")
+                speak("I can tell you a joke if you‘d like.")
 
             record_user_input()
             key = recognize("no joke time photo picture music")
             
             if "no" == key and gone_silent == 2:
-                speak("Ok. I‘ go rest now.")
+                speak("Ok. I‘ll go rest now.")
                 speak("Catch you later!")
                 break
             if key:
