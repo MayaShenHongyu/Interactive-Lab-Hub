@@ -120,12 +120,12 @@ def initilaize_plant():
     
     time.sleep(0.5)
     speak("One more thing.")
-    speak("I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'done' when you’re done?")
+    speak("I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'finish' when you’re done?")
     while True:
         record_user_input(3)
-        result = recognize("done wait")
+        result = recognize("finish wait")
         if "wait" in result:
-            speak("Ok, let me know when you're done.")
+            speak("Ok, let me know when you're finished.")
         elif "done" in result:
             break
         time.sleep(3)
@@ -133,13 +133,13 @@ def initilaize_plant():
     
     time.sleep(1)
     speak("Umm, try somewhere else. Here the temperature is 13 degree but my ideal temp is from 15 degree to 30 degree")
-    speak("Let me know when you are done.")
+    speak("Let me know when you are finished.")
 
     while True:
         record_user_input(3)
-        result = recognize("done wait")
+        result = recognize("finish wait")
         if "wait" in result:
-            speak("Ok, let me know when you're done.")
+            speak("Ok, let me know when you're finished.")
         elif "done" in result:
             break
         time.sleep(3)
@@ -149,30 +149,6 @@ def initilaize_plant():
     time.sleep(1)
     speak("If it’s alright with you, I will go rest now. Just say hey ivy if you need me.")
     speak("Catch you later!")
-
-    # tried_times = 0
-
-    # while True:
-    #     temp = get_temperature()
-        
-    #     if 15 <= temp <= 30:
-    #         speak("This is a great place! I love the temperature and sunlight here!")
-    #         break
-        
-    #     tried_times += 1
-    #     if tried_times >= 2:
-    #         speak("Ok. I guess this is the best you could find.")
-    #         speak("I will settle down here for now and let you know if it causes problem to my health.")
-    #         break
-        
-    #     speak("Umm, try somewhere else. Here the temperature is" + temp + "degree but my ideal temp is from 15 degree to 30 degree")
-    #     speak("Let me know when you are done.") 
-        
-    #     while True:
-    #         record_user_input()
-    #         result = recognize("done")
-    #         if "done" in result:
-    #             break
     
 
 
