@@ -13,21 +13,21 @@ import requests
 
 from flask import Flask, jsonify, Response
 
+
+### Hardware setup
+i2c = board.I2C()  # uses board.SCL and board.SDA
+mpu = adafruit_mpu6050.MPU6050(i2c)
+
+### Flask
 app = Flask(__name__)
+
 def flaskThread():
     app.run(host="100.64.3.110", port=4000)
-@app.route('/humidity')
-def humidity():
 
+@app.route('/sensor')
+def sensor():
     temp = mpu.temperature + TEMP_OFFSET
-
-    # def long_running_get_data(**kwargs):
-    #     your_params = kwargs.get('post_data', {})
-
-    # thread = threading.Thread(target=long_running_get_data, kwargs={
-    #                 'post_data': temp})
-    # thread.start()
-    response = jsonify({"humidity": temp})
+    response = jsonify({"temperature": temp})
     response.headers.add('Access-Control-Allow-Origin', '*') 
     return response
 
@@ -35,8 +35,6 @@ if __name__ == "__main__":
     # app.run(host="100.64.3.110", port=4000)
     threading.Thread(target=flaskThread).start()
     
-
-TEMP_OFFSET = -8
 
 # def run_continuously(interval=1):
 #     """Continuously run, while executing pending jobs at each
@@ -62,9 +60,6 @@ TEMP_OFFSET = -8
 #     continuous_thread.start()
 #     return cease_continuous_run
 
-
-i2c = board.I2C()  # uses board.SCL and board.SDA
-mpu = adafruit_mpu6050.MPU6050(i2c)
 
 
 if not os.path.exists("./model"):
@@ -107,14 +102,82 @@ def recognize(pattern):
     print("Failed to recognize")
     return ""
 
+def get_temperature():
+    return mpu.temperature - 8
 
 def initilaize_plant():
-    pass
+    speak("Hi, roommate! Great to finally meet you. Can you tell me who I am first? Cactus? airplant? Orchid? or Sunflower?")
+    
+    record_user_input()
+    plant = recognize("ivy")
+    if plant:
+        speak("I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
+        speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
+        speak("I get thirsty every five days, but keep me humid! I‘ll also let you know if I need to drink more water.")
+        speak("Also, I don’t bloom. I hope you’re not a flower person.")
+        speak("I don’t know if you have any other friends, but you’re my first one now, bestie.")
+    
+    time.sleep(1)
+    speak("Also, I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'done' when you’re done?")
+    while True:
+        record_user_input()
+        result = recognize("done wait")
+        if "wait" in result:
+            speak("Ok, let me know when you're done.")
+        elif "done" in result:
+            break
+        time.sleep(3)
+        speak("Say done when you’re done.")
+    
+    speak("Umm, try somewhere else. Here the temperature is 13 degree but my ideal temp is from 15 degree to 30 degree")
+    speak("Let me know when you are done.")
+
+    while True:
+        record_user_input()
+        result = recognize("done wait")
+        if "wait" in result:
+            speak("Ok, let me know when you're done.")
+        elif "done" in result:
+            break
+        time.sleep(3)
+        speak("Say done when you’re done.")
+
+    speak("This is a great place! I love the temperature and sunlight here!")
+    time.sleep(1)
+    speak("If it’s alright with you, I will go rest now. Just say hey ivy when you need me. Catch you later!")
+
+    # tried_times = 0
+
+    # while True:
+    #     temp = get_temperature()
+        
+    #     if 15 <= temp <= 30:
+    #         speak("This is a great place! I love the temperature and sunlight here!")
+    #         break
+        
+    #     tried_times += 1
+    #     if tried_times >= 2:
+    #         speak("Ok. I guess this is the best you could find.")
+    #         speak("I will settle down here for now and let you know if it causes problem to my health.")
+    #         break
+        
+    #     speak("Umm, try somewhere else. Here the temperature is" + temp + "degree but my ideal temp is from 15 degree to 30 degree")
+    #     speak("Let me know when you are done.") 
+        
+    #     while True:
+    #         record_user_input()
+    #         result = recognize("done")
+    #         if "done" in result:
+    #             break
+    
+
 
 def tell_joke():
     speak("What do you call a cow with a twitch?")
     speak("Beef Jerky")
-    
+    time.sleep(0.5)
+
+    speak("Ha ha ha. Do you like my joke?")
     pass
 
 def tell_time():
@@ -125,26 +188,18 @@ def plant_summary():
     speak("I‘m doing well.")
     pass
 
+def play_music():
+    speak("Sure, this is my heroic entrtance theme.")
+    subprocess.call("aplay music.wav", shell=True)
 
-def measure_temp():
-    # print('Hello from the background thread')
-    temp = mpu.temperature + TEMP_OFFSET
-    t = time.strftime("%H:%M:%S")
-    print(f"Measured temperature at {t}: {temp}")
-    payload = {'temperature': temp, 'time': time.strftime("%H:%M:%S\n")}
-    # requests.put('https://httpbin.org/put', data=payload)
-    # requests.get('https://httpbin.org/get', params=payload) # https://httpbin.org/get?key2=value2&key1=value1
-
-
-# schedule.every(5).seconds.do(measure_temp)
-
-# # Start the background thread
-# stop_run_continuously = run_continuously(5)
-
+def take_photo():
+    speak("I mean, of course, you‘re the best looking person I‘ve ever seen.")
+    subprocess.call("aplay camera.wav", shell=True)
+    speak("I uploaded the picture to the web portal. Go check it out!")
 
 while True:
     record_user_input(3)
-    if recognize("cactus hey"):
+    if recognize("ivy hey"):
         firstTime = True
         gone_silent = 0
         while True:
@@ -156,7 +211,7 @@ while True:
                 # speak("I can tell you a joke if you‘d like.")
 
             record_user_input()
-            key = recognize("no joke time how doing water temperature")
+            key = recognize("no joke time photo picture music")
             
             if "no" == key and gone_silent == 2:
                 speak("Ok. Catch you later.")
@@ -167,12 +222,10 @@ while True:
                     tell_joke()
                 elif "time" in key:
                     tell_time()
-                elif "how" in key or "doing" in key:
-                    plant_summary()
-                elif "water" in key:
-                    pass
-                elif "temperature" in key:
-                    pass
+                elif "music" in key:
+                    play_music()
+                elif "photo" in key or "picture" in key:
+                    take_photo()
             else:
                 gone_silent += 1
                 if gone_silent == 6:
