@@ -25,7 +25,7 @@ def get_temperature():
     return mpu.temperature - 8
 
 def flaskThread():
-    app.run(host="100.64.3.110", port=4000)
+    app.run(host="10.56.132.250", port=4000)
 
 @app.route('/sensor')
 def sensor():
@@ -180,7 +180,7 @@ def take_photo():
     time.sleep(1)
     speak("I uploaded the picture to the web portal. Go check it out!")
 
-initilaize_plant()
+# initilaize_plant()
 
 while True:
     record_user_input()
