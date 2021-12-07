@@ -126,7 +126,7 @@ def initilaize_plant():
         result = recognize("finish wait")
         if "wait" in result:
             speak("Ok, let me know when you're finished.")
-        elif "done" in result:
+        elif "finish" in result:
             break
         time.sleep(3)
         speak("Say finish when you’re done.")
@@ -140,7 +140,7 @@ def initilaize_plant():
         result = recognize("finish wait")
         if "wait" in result:
             speak("Ok, let me know when you're finished.")
-        elif "done" in result:
+        elif "finish" in result:
             break
         time.sleep(3)
         speak("Say finish when you’re done.")
