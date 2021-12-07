@@ -129,7 +129,7 @@ def initilaize_plant():
         elif "done" in result:
             break
         time.sleep(3)
-        speak("Say done when you’re done.")
+        speak("Say finish when you’re done.")
     
     time.sleep(1)
     speak("Umm, try somewhere else. Here the temperature is 13 degree but my ideal temp is from 15 degree to 30 degree")
@@ -143,7 +143,7 @@ def initilaize_plant():
         elif "done" in result:
             break
         time.sleep(3)
-        speak("Say done when you’re done.")
+        speak("Say finish when you’re done.")
 
     speak("This is a great place! I love the temperature and sunlight here!")
     time.sleep(1)
