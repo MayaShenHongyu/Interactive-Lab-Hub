@@ -108,15 +108,15 @@ def recognize(pattern):
 def initilaize_plant():
     speak("Hi, roommate! Great to finally meet you. Can you tell me who I am first? Cactus? airplant? Orchid? or Sunflower?")
     
-    record_user_input(3)
+    record_user_input()
     plant = recognize("ivy")
 
-    # speak("I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
-    # speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
-    # speak("I get thirsty every five days, but keep me humid! I‘ll let you know if I need to drink more water.")
-    # speak("Also, I don’t bloom. I hope you’re not a flower person.")
-    # time.sleep(0.5)
-    # speak("I don’t know if you have any other friends, but you are my first one now, bestie.")
+    speak("I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
+    speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
+    speak("I get thirsty every five days, but keep me humid! I‘ll let you know if I need to drink more water.")
+    speak("Also, I don’t bloom. I hope you’re not a flower person.")
+    time.sleep(0.5)
+    speak("I don’t know if you have any other friends, but you are my first one now, bestie.")
     
     time.sleep(0.5)
     speak("One more thing.")
