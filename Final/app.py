@@ -197,6 +197,8 @@ def take_photo():
     subprocess.call("aplay camera.wav", shell=True)
     speak("I uploaded the picture to the web portal. Go check it out!")
 
+initilaize_plant()
+
 while True:
     record_user_input(3)
     if recognize("ivy hey"):
