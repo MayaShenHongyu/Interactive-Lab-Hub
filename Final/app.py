@@ -108,19 +108,18 @@ def get_temperature():
 def initilaize_plant():
     speak("Hi, roommate! Great to finally meet you. Can you tell me who I am first? Cactus? airplant? Orchid? or Sunflower?")
     
-    record_user_input()
+    record_user_input(3)
     plant = recognize("ivy")
-    if plant:
-        speak("I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
-        speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
-        speak("I get thirsty every five days, but keep me humid! I‘ll also let you know if I need to drink more water.")
-        speak("Also, I don’t bloom. I hope you’re not a flower person.")
-        speak("I don’t know if you have any other friends, but you’re my first one now, bestie.")
+    speak("Thank you!. I’m finally over my identity crisis. Thanks! I am feeling great right now! Let me tell you a little bit about myself first.")
+    speak("I am a devil's ivy. You can call me ivy. The ideal temperature for me to live is fifteen to thirty degrees celsius with bright, indirect sunlight.")
+    speak("I get thirsty every five days, but keep me humid! I‘ll also let you know if I need to drink more water.")
+    speak("I don’t bloom. I hope you’re not a flower person.")
+    speak("I don’t know if you have any other friends, but you’re my first one now, bestie.")
     
-    time.sleep(1)
+    time.sleep(0.5)
     speak("Also, I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'done' when you’re done?")
     while True:
-        record_user_input()
+        record_user_input(3)
         result = recognize("done wait")
         if "wait" in result:
             speak("Ok, let me know when you're done.")
@@ -129,11 +128,12 @@ def initilaize_plant():
         time.sleep(3)
         speak("Say done when you’re done.")
     
+    time.sleep(0.5)
     speak("Umm, try somewhere else. Here the temperature is 13 degree but my ideal temp is from 15 degree to 30 degree")
     speak("Let me know when you are done.")
 
     while True:
-        record_user_input()
+        record_user_input(3)
         result = recognize("done wait")
         if "wait" in result:
             speak("Ok, let me know when you're done.")
