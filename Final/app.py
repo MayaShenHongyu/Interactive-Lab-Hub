@@ -122,7 +122,7 @@ def initilaize_plant():
     speak("One more thing.")
     speak("I’m not sure where I feel most comfortable growing. Now could you move me around to different places, and say 'finish' when you’re done?")
     while True:
-        record_user_input(3)
+        record_user_input()
         result = recognize("finish wait")
         if "wait" in result:
             speak("Ok, let me know when you're finished.")
@@ -136,7 +136,7 @@ def initilaize_plant():
     speak("Let me know when you are finished.")
 
     while True:
-        record_user_input(3)
+        record_user_input()
         result = recognize("finish wait")
         if "wait" in result:
             speak("Ok, let me know when you're finished.")
@@ -183,7 +183,7 @@ def take_photo():
 initilaize_plant()
 
 while True:
-    record_user_input(3)
+    record_user_input()
     if recognize("ivy hey"):
         firstTime = True
         gone_silent = 0
