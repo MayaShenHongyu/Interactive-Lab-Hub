@@ -21,6 +21,9 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 ### Flask
 app = Flask(__name__)
 
+def get_temperature():
+    return mpu.temperature - 8
+
 def flaskThread():
     app.run(host="100.64.3.110", port=4000)
 
@@ -101,9 +104,6 @@ def recognize(pattern):
         #     print(rec.PartialResult())
     print("Failed to recognize")
     return ""
-
-def get_temperature():
-    return mpu.temperature - 8
 
 def initilaize_plant():
     speak("Hi, roommate! Great to finally meet you. Can you tell me who I am first? Cactus? airplant? Orchid? or Sunflower?")
