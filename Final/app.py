@@ -9,17 +9,26 @@ import time
 # import schedule
 import board
 import adafruit_mpu6050
-import requests
+import RPi.GPIO as GPIO
 
 from flask import Flask, jsonify, Response
 
 
-### Hardware setup
+### Temperature sensor setup
 i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
 
+### Soil moisture sensor setup
+channel = 11
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(channel, GPIO.IN)
+
+
 ### Flask
 app = Flask(__name__)
+
+def get_moisture_level():
+    return GPIO.input(channel)
 
 def get_temperature():
     return mpu.temperature - 8
@@ -27,8 +36,14 @@ def get_temperature():
 def flaskThread():
     app.run(host="10.56.132.250", port=4000)
 
-@app.route('/sensor')
-def sensor():
+@app.route('/moisture')
+def moisture():
+    response = jsonify({"moisture": get_moisture_level()})
+    response.headers.add('Access-Control-Allow-Origin', '*') 
+    return response
+
+@app.route('/temperature')
+def temperature():
     # temp = get_temperature()
     response = jsonify({"temperature": get_temperature()})
     response.headers.add('Access-Control-Allow-Origin', '*') 
