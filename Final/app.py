@@ -151,23 +151,35 @@ def initilaize_plant():
     speak("Catch you later!")
     
 
+joke_index = 0
 
 def tell_joke():
-    speak("What do you call a cow with a twitch?")
-    speak("Beef Jerky")
-    time.sleep(0.5)
+    global joke_index
+    jokes = [
+        ["What do you call a cow with a twitch?", "Beef Jerky"], 
+        ["What did one wall say to the other?", "I'll meet you at the corner."],
+        ["What has more letters than the alphabet?", "The post office!"]
+    ]
 
-    speak("Ha ha ha. Do you like my joke?")
-    pass
+    afterwords = [
+        "Ha ha ha. Do you like it?",
+        "How‘s this one?",
+        "Isn‘t it so funny? I‘m dying laughing."
+    ]
+
+    for line in jokes[joke_index]:
+        speak(line)
+    time.sleep(0.5)
+    speak(afterwords[joke_index])
+    
+    joke_index = (joke_index + 1) % len(jokes)
 
 def tell_time():
     speak("It‘s eleven past 2. It‘s late.")
     speak("You should go to sleep soon. Just do IDD tomorrow.")
-    pass
 
 def plant_summary():
     speak("I‘m doing well.")
-    pass
 
 def play_music():
     speak("Sure, this is my heroic entrance theme.")
