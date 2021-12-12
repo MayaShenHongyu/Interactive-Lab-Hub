@@ -16,11 +16,15 @@ channel = 11
 #定义针脚为input口
 GPIO.setup(channel, GPIO.IN)
  
-#添加简单事件
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=200)
-#添加时间触发的回调函数
-GPIO.add_event_callback(channel, callback)
+# #添加简单事件
+# GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=200)
+# #添加时间触发的回调函数
+# GPIO.add_event_callback(channel, callback)
  
 #保持主进程不退出
 while True:
-  time.sleep(0.1)
+    time.sleep(0.1)
+    if GPIO.input(channel):
+        print("ss")
+    else:
+        print('wet')
