@@ -28,6 +28,7 @@ GPIO.setup(channel, GPIO.IN)
 app = Flask(__name__)
 
 def get_moisture_level():
+    print("Moisture:", GPIO.input(channel))
     return GPIO.input(channel)
 
 def get_temperature():
