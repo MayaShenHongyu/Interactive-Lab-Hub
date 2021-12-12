@@ -34,7 +34,7 @@ def get_temperature():
     return mpu.temperature - 8
 
 def flaskThread():
-    app.run(host="10.56.132.250", port=4000)
+    app.run(host="100.64.3.110", port=4000)
 
 @app.route('/moisture')
 def moisture():
