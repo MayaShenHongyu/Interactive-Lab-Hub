@@ -20,7 +20,7 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 
 ### Soil moisture sensor setup
 channel = 11
-GPIO.setmode(GPIO.BOARD)
+# GPIO.setmode(GPIO.BOARD)
 GPIO.setup(channel, GPIO.IN)
 
 
