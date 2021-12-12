@@ -3,10 +3,7 @@ import time
  
 #回调函数
 def callback(channel):
-    if GPIO.input(channel):
-        print("ss")
-    else:
-        print('wet')
+    print(GPIO.input(channel))
  
 #定义针脚排序为BOARD形式
 GPIO.setmode(GPIO.BOARD)
@@ -24,7 +21,4 @@ GPIO.setup(channel, GPIO.IN)
 #保持主进程不退出
 while True:
     time.sleep(0.1)
-    if GPIO.input(channel):
-        print("ss")
-    else:
-        print('wet')
+    print(GPIO.input(channel))
