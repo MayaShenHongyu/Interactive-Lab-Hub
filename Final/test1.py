@@ -10,6 +10,7 @@ except:
     print("Using default image.")
 
 ret, img = cap.read()
-cv2.imwrite('images/c1.png', img)
+cv2.imshow('img1', img)
+cv2.imwrite('c1.png', img)
 
 cap.release()
