@@ -5,6 +5,7 @@ import time
  
 #回调函数
 def callback(channel):
+    print(GPIO.input(channel))
     if GPIO.input(channel):
         print(1)
     else:
