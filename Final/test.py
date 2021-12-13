@@ -3,7 +3,7 @@ import time
  
 #回调函数
 def callback(channel):
-    if (GPIO.input(channel)):
+    if GPIO.input(channel):
         print(1)
     else:
         print(0)
@@ -24,4 +24,7 @@ GPIO.add_event_callback(channel, callback)
 #保持主进程不退出
 while True:
     time.sleep(0.1)
-    #print(GPIO.input(channel))
+    if GPIO.input(channel):
+        print(1)
+    else:
+        print(0)
