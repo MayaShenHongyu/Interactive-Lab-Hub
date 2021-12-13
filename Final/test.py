@@ -21,4 +21,4 @@ GPIO.add_event_callback(channel, callback)
 #保持主进程不退出
 while True:
     time.sleep(0.1)
-    # print(GPIO.input(channel))
+    print(GPIO.input(channel))
