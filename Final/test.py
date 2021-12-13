@@ -14,7 +14,7 @@ def callback(channel):
 GPIO.setmode(GPIO.BOARD)
  
 #针脚
-channel = 11
+channel = 12
 #定义针脚为input口
 GPIO.setup(channel, GPIO.IN)
  
