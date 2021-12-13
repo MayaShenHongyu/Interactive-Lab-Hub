@@ -173,7 +173,7 @@ def tell_joke():
     global joke_index
     jokes = [
         ["What do you call a cow with a twitch?", "Beef Jerky"], 
-        ["What did one wall say to the other?", "I'll meet you at the corner."],
+        ["What did one wall say to the other?", "I‘ll meet you at the corner."],
         ["What has more letters than the alphabet?", "The post office!"]
     ]
 
