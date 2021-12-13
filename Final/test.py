@@ -1,12 +1,14 @@
+#!/usr/bin/python
+#coding=utf-8
 import RPi.GPIO as GPIO
 import time
  
 #回调函数
 def callback(channel):
     if GPIO.input(channel):
-        print(1)
-    else:
         print(0)
+    else:
+        print(1)
  
 #定义针脚排序为BOARD形式
 GPIO.setmode(GPIO.BOARD)
@@ -23,8 +25,4 @@ GPIO.add_event_callback(channel, callback)
  
 #保持主进程不退出
 while True:
-    time.sleep(0.1)
-    if GPIO.input(channel):
-        print(1)
-    else:
-        print(0)
+  time.sleep(0.1)
