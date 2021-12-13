@@ -9,8 +9,7 @@ try:
 except:
     print("Using default image.")
 
+ret, img = cap.read()
+cv2.imwrite('images/c1.png', img)
 
-while True:
-    if webCam:
-      ret, img = cap.read()
-    print(type(img))
+cap.release()
