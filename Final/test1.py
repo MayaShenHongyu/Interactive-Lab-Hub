@@ -1,4 +1,5 @@
 import cv2
+import os
 
 try:
     print("Trying to open the Webcam.")
@@ -9,6 +10,7 @@ try:
 except:
     print("Using default image.")
 
+print(os.getcwd())
 ret,frame = cap.read() # return a single frame in variable `frame`
 while(True):
     # cv2.imwrite('images/c2.png',frame)
