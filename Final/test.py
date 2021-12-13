@@ -28,7 +28,7 @@ GPIO.add_event_callback(channel, callback)
 while True:
     time.sleep(0.1)
     print(GPIO.input(channel))
-    if GPIO.input(channel):
-        print(0)
-    else:
-        print(1)
+    # if GPIO.input(channel):
+    #     print(0)
+    # else:
+    #     print(1)
