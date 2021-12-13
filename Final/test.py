@@ -5,10 +5,10 @@ import time
  
 #回调函数
 def callback(channel):
-    if (GPIO.input(channel) == 1):
-        print(0)
-    else:
+    if GPIO.input(channel):
         print(1)
+    else:
+        print(0)
  
 #定义针脚排序为BOARD形式
 GPIO.setmode(GPIO.BOARD)
